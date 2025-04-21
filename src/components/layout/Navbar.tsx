@@ -86,7 +86,7 @@ const Navbar = () => {
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-4">
             <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
             <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>
-            <MobileNavLink to="/research" onClick={toggleMenu}>Research</MobileNavLink>
+           
             <MobileNavLink to="/publications" onClick={toggleMenu}>Publications</MobileNavLink>
             <MobileNavLink to="/team" onClick={toggleMenu}>Team</MobileNavLink>
             <MobileNavLink to="/events" onClick={toggleMenu}>Events</MobileNavLink>

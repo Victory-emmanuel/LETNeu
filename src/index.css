@@ -87,7 +87,7 @@
     --accent-foreground: 210 40% 98%;
 
     /* Custom highlight color - Darker pink for dark mode */
-    --highlight: 342 70% 55%; /* Darker version of #fa5c8a */
+    --highlight: 342 70% 55%; /* Darker version of #B82132 */
     --highlight-foreground: 210 40% 98%;
 
     /* Custom extra color - Darker yellow for dark mode */
@@ -123,5 +123,5 @@
 
 /* Custom classes */
 .team-member-image-gradient {
-  background: linear-gradient(45deg, rgba(30,196,243,0.2), rgba(250,92,138,0.2));
+  background: linear-gradient(45deg, rgba(30,196,243,0.2), rgba(133, 0, 38, 0.2));
 }
