@@ -50,14 +50,7 @@ const Footer = () => {
                   About
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/research"
-                  className="text-white/80 hover:text-white transition-colors"
-                >
-                  Research
-                </Link>
-              </li>
+              
               <li>
                 <Link
                   to="/publications"

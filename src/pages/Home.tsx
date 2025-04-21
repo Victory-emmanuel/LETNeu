@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowRight, Calendar, Clock, MapPin } from "lucide-react";
+import { ArrowRight, Calendar, Clock, MapPin, Brain, Microscope, TestTube, Dna, Atom, Leaf } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import Layout from "@/components/layout/Layout";
@@ -18,6 +18,24 @@ import { collaborators, funders } from "@/data/collaboratorsData";
 import { upcomingEvents } from "@/data/eventsData";
 
 const Home = () => {
+  // Function to get icon based on research area ID
+  const getResearchIcon = (id: number) => {
+    switch (id) {
+      case 1:
+        return <Brain className="text-accent" size={24} />;
+      case 2:
+        return <Microscope className="text-highlight" size={24} />;
+      case 3:
+        return <Atom className="text-accent" size={24} />;
+      case 4:
+        return <TestTube className="text-highlight" size={24} />;
+      case 5:
+        return <Leaf className="text-extra" size={24} />;
+      default:
+        return <Dna className="text-primary" size={24} />;
+    }
+  };
+
   // Sponsor logos
   const sponsorImages = [
     "https://i.postimg.cc/TYys8RQS/sponsors4.png",
@@ -79,16 +97,15 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="aspect-w-16 aspect-h-9 relative">
-                  <img
-                    src={area.imageUrl}
-                    alt={area.title}
-                    className="object-cover w-full h-48"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-primary mb-2">{area.title}</h3>
-                  <p className="text-sm text-foreground/70 line-clamp-3 mb-4">{area.description}</p>
+
+                <div className="p-6 h-full flex flex-col">
+                  <div className="flex items-center mb-3 border-b border-accent/20 pb-2">
+                    <div className="mr-3 p-2 rounded-full bg-secondary/50 dark:bg-gray-700/50">
+                      {getResearchIcon(area.id)}
+                    </div>
+                    <h3 className="text-xl font-bold text-primary">{area.title}</h3>
+                  </div>
+                  <p className="text-base text-foreground/80 mb-4 flex-grow">{area.description}</p>
 
                 </div>
               </motion.div>

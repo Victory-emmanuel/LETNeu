@@ -79,7 +79,7 @@ const PublicationCard = ({
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-xs px-3 py-1 rounded-full bg-extra/20 dark:bg-extra/30 text-extra-foreground dark:text-extra hover:bg-extra hover:text-extra-foreground transition-colors"
               >
-                <span>{pdfUrl ? "PDF" : "View"}</span>
+                <span>{pdfUrl ? "View More" : "View"}</span>
                 <ExternalLink size={12} className="ml-1" />
               </a>
             )}
