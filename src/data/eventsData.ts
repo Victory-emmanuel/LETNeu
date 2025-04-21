@@ -20,7 +20,7 @@ export const upcomingEvents: Event[] = [
     time: "10:00 AM daily",
     location: "TETfund Building, UNIMED Laje Campus",
     description: "Theme: Innovating Biomedical Research for Transformative National Policies. Featuring plenary speakers Prof. Olumide A.T. Ogundahunsi and Prof. Samuel O. Oluwafemi. Subthemes include advances in molecular biomedicine, neuroscience and neuro-technologies, innovative approaches in phytomedicine, endocrinology and reproductive physiology, anatomical bioanthropology, computational biology and bioinformatics, and artificial intelligence in biomedical research.",
-    imageUrl: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://i.postimg.cc/CxGmYd8v/R2-FBMS-2025-Conference-Advert-B.jpg",
     registrationUrl: "https://forms.gle/byvJ45Z1MFWvi11E9",
     category: 'conference'
   }

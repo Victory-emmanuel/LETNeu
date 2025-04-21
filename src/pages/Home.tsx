@@ -89,13 +89,7 @@ const Home = () => {
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-primary mb-2">{area.title}</h3>
                   <p className="text-sm text-foreground/70 line-clamp-3 mb-4">{area.description}</p>
-                  <Link
-                    to="/research"
-                    className=" text-accent dark:text-white font-medium hover:text-primary  transition-colors inline-flex items-center"
-                  >
-                    <span>Learn more</span>
-                    <ArrowRight size={16} className="ml-1" />
-                  </Link>
+                 
                 </div>
               </motion.div>
             ))}

@@ -40,15 +40,15 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start space-x-2">
                 <MapPin className="shrink-0 w-5 h-5 mt-0.5" />
-                <span className="text-white/80">123 Research Avenue, Sciencetown, ST 12345</span>
+                <span className="text-white/80">Department of Anatomy University of Medical Sciences, Ondo (UNIMED) Ondo State, Nigeria5</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="w-5 h-5" />
-                <span className="text-white/80">(555) 123-4567</span>
+                <span className="text-white/80">070313549871</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-5 h-5" />
-                <span className="text-white/80">info@researchlab.edu</span>
+                <span className="text-white/80">omijomone@unimed.edu.ng</span>
               </li>
             </ul>
           </div>
@@ -70,7 +70,7 @@ const Footer = () => {
             </a>
           </div>
           <div className="text-white/80 text-sm">
-            © {currentYear} Research Lab. All rights reserved.
+            © {currentYear} LETNeu. All rights reserved.
           </div>
         </div>
       </div>
