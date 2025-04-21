@@ -11,10 +11,17 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="bg-secondary/30 dark:bg-gray-800/30 py-20">
+      <div
+        className="py-20 relative bg-cover bg-center"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.postimg.cc/J438vgZV/C-elegans-stained.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
         <div className="container mx-auto px-4">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold text-primary mb-6"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -27,7 +34,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <p className="text-xl text-foreground/80 mb-8">
+            <p className="text-xl text-white/90 mb-8">
               The Laboratory for Experimental and Translational Neurobiology (LETNeu) is a research-intensive group at the University of Medical Sciences, Ondo (UNIMED), dedicated to understanding the complex interplay between genetic and environmental factors in brain disorders.
             </p>
           </motion.div>

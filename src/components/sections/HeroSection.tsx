@@ -15,7 +15,7 @@ const HeroSection = ({
   backgroundImage
 }: HeroSectionProps) => {
   return (
-    <div 
+    <div
       className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`,
@@ -24,9 +24,9 @@ const HeroSection = ({
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70 z-0"></div>
-      
+
       <div className="container mx-auto px-4 py-20 relative z-10 text-center">
-        <motion.h1 
+        <motion.h1
           className="text-4xl md:text-6xl font-bold text-white mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,8 +34,8 @@ const HeroSection = ({
         >
           {title}
         </motion.h1>
-        
-        <motion.p 
+
+        <motion.p
           className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ const HeroSection = ({
         >
           {subtitle}
         </motion.p>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ const HeroSection = ({
         >
           <Link
             to="/contact"
-            className="inline-flex items-center px-6 py-3 bg-accent text-white font-medium rounded-md hover:bg-accent/90 transition-colors"
+            className="inline-flex items-center px-6 py-3 bg-highlight text-white font-medium rounded-md hover:bg-highlight/90 transition-colors"
           >
             <span>Contact Us</span>
             <ArrowRight size={18} className="ml-2" />

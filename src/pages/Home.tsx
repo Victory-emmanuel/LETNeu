@@ -33,8 +33,8 @@ const Home = () => {
     <Layout>
       <HeroSection
         title="Laboratory for Experimental and Translational Neurobiology"
-        subtitle="A research-intensive group at the University of Medical Sciences, Ondo (UNIMED), studying metal neurotoxicity, developmental neurotoxicity, mechanisms of neurodegeneration, gene-environment interactions, and environmental toxicology."
-        backgroundImage="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
+        subtitle="A research-intensive group at the University of Medical Sciences, Ondo (UNIMED), studying neurotoxicity, mechanisms of neurodegeneration, gene-environment interactions, brain disorders (autism, Parkinson's, Alzheimer's), and environmental neurotoxicology."
+        backgroundImage="https://i.postimg.cc/L8Np61xx/elegans-landing.jpg"
       />
 
       {/* Sponsors Banner */}
@@ -57,7 +57,7 @@ const Home = () => {
               transition={{ duration: 0.5 }}
             >
               <p className="text-foreground/80 mb-4">
-                The Laboratory for Experimental and Translational Neurobiology (LETNeu) is a research-intensive group at the University of Medical Sciences, Ondo (UNIMED). We study metal neurotoxicity, developmental neurotoxicity; mechanisms of neurodegeneration; gene-environment interactions and gut microbiome modulation in brain disorder; and environmental toxicology.
+                The Laboratory for Experimental and Translational Neurobiology (LETNeu) is a research-intensive group at the University of Medical Sciences, Ondo (UNIMED). We study neurotoxicity; mechanisms of neurodegeneration; gene-environment interactions and gut microbiome modulation in brain disorders (autism, Parkinson's, and Alzheimer's); and environmental neurotoxicology.
               </p>
               <p className="text-foreground/80 mb-4">
                 Our research aims to understand how the brain is affected by an interplay of genetic and environmental factors that trigger neuronal perturbations and/or neuronal death at critical stages of development and across the lifespan. Specifically, we focus on the role of metals as environmental toxicants interacting with genetic mutations in the pathogenesis of brain disorders including autism, Parkinson's, and Alzheimer's.
@@ -89,7 +89,7 @@ const Home = () => {
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-primary mb-2">{area.title}</h3>
                   <p className="text-sm text-foreground/70 line-clamp-3 mb-4">{area.description}</p>
-                 
+
                 </div>
               </motion.div>
             ))}
@@ -332,7 +332,7 @@ const Home = () => {
                 />
               </div>
                   <h4 className="font-medium text-primary mb-2">{funder.name}</h4>
-                  <p className="text-sm text-foreground/70">{funder.website}</p>
+                  <a href={funder.website} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-500">{funder.website}</a>
                 </motion.div>
               ))}
             </div>

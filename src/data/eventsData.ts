@@ -26,7 +26,41 @@ export const upcomingEvents: Event[] = [
   }
 ];
 
-export const pastEvents: Event[] = [];
+export const pastEvents: Event[] = [
+  {
+    id: 2,
+    title: "New Research Publication",
+    date: "March 15, 2024",
+    time: "Published",
+    location: "Scientific Journal",
+    description: "We are excited to share our recently published paper with you. A big congratulations to the LETNeu team for doing an amazing work. The key takeaway is that potential therapeutic interventions such as the use of new and improved chelating agents and antioxidant therapies might be a significant approach to alleviating metal-induced glial perturbations.",
+    imageUrl: "https://i.postimg.cc/9FDPQfvP/e1.png",
+    isPast: true,
+    category: 'other'
+  },
+  {
+    id: 3,
+    title: "Lectures and Practical Sessions",
+    date: "February 10, 2024",
+    time: "9:00 AM - 5:00 PM",
+    location: "UNIMED, Ondo",
+    description: "Lectures were given by Professor Felix Antunes Soares, Professor Monica Bastos and a virtual lecture by Miss Ofure Okoh. Thereafter, practicals were conducted. International Society for Neurochemistry (ISN).",
+    imageUrl: "https://i.postimg.cc/sDbYQrrk/e2.png",
+    isPast: true,
+    category: 'workshop'
+  },
+  {
+    id: 4,
+    title: "ISN NEUROSCIENCE School",
+    date: "August 11-12, 2024",
+    time: "9:00 AM - 5:00 PM",
+    location: "UNIMED, Ondo",
+    description: "The ISN NEUROSCIENCE School, UNIMED, Ondo, began on 11th August, 2024 (Day 1) as the participants and invited speakers arrive from various destinations. On the 12th, the school kicked off grandly which was graciously opened by the Vice Chancellor of the University of Medical Sciences (UNIMED) and a brief talk from the host Omamuyovwi (Mamus) Ijomone. The first lecture was given by Prof Michael Aschner, from Albert Einstein College of Medicine. International Society for Neurochemistry (ISN)",
+    imageUrl: "https://i.postimg.cc/brWttQKx/e3.png",
+    isPast: true,
+    category: 'symposium'
+  }
+];
 
 export const allEvents = [...upcomingEvents, ...pastEvents];
 

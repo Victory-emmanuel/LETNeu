@@ -38,7 +38,7 @@ const PublicationCard = ({
       transition={{ duration: 0.5, delay: delay * 0.1 }}
     >
       <div className="flex items-start gap-4">
-        <div className="rounded-full p-3 bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 flex-shrink-0">
+        <div className="rounded-full p-3 bg-accent/20 dark:bg-accent/30 text-accent dark:text-accent flex-shrink-0">
           <FileText size={24} />
         </div>
         <div className="flex-grow">
@@ -66,7 +66,7 @@ const PublicationCard = ({
                 href={`https://doi.org/${doi}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-xs px-3 py-1 rounded-full bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary hover:text-white transition-colors"
+                className="inline-flex items-center text-xs px-3 py-1 rounded-full bg-highlight/20 dark:bg-highlight/30 text-highlight dark:text-highlight hover:bg-highlight hover:text-white transition-colors"
               >
                 <span>DOI</span>
                 <ExternalLink size={12} className="ml-1" />
@@ -77,7 +77,7 @@ const PublicationCard = ({
                 href={pdfUrl || link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-xs px-3 py-1 rounded-full bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary hover:text-white transition-colors"
+                className="inline-flex items-center text-xs px-3 py-1 rounded-full bg-extra/20 dark:bg-extra/30 text-extra-foreground dark:text-extra hover:bg-extra hover:text-extra-foreground transition-colors"
               >
                 <span>{pdfUrl ? "PDF" : "View"}</span>
                 <ExternalLink size={12} className="ml-1" />

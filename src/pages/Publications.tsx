@@ -8,7 +8,7 @@ import { publications, publicationsByYear, publicationCategories, Publication } 
 
 const Publications = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [viewMode, setViewMode] = useState<'category' | 'year'>('category');
+  const [viewMode, setViewMode] = useState<'category' | 'year'>('year');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // Filter publications based on active category and search query
@@ -108,8 +108,8 @@ const Publications = () => {
                       type="button"
                       className={`px-4 py-2 ${
                         viewMode === 'category'
-                          ? 'bg-primary text-white'
-                          : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-200 hover:bg-secondary/50 dark:hover:bg-gray-600'
+                          ? 'bg-secondary text-white'
+                          : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-gray-600'
                       }`}
                       onClick={() => setViewMode('category')}
                     >
@@ -119,8 +119,8 @@ const Publications = () => {
                       type="button"
                       className={`px-4 py-2 ${
                         viewMode === 'year'
-                          ? 'bg-primary text-white'
-                          : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-200 hover:bg-secondary/50 dark:hover:bg-gray-600'
+                          ? 'bg-secondary text-white'
+                          : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-gray-600'
                       }`}
                       onClick={() => setViewMode('year')}
                     >
@@ -142,8 +142,8 @@ const Publications = () => {
                         key={category.value}
                         className={`px-3 py-1.5 rounded-full text-sm ${
                           activeCategory === category.value
-                            ? 'bg-primary text-white'
-                            : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
+                            ? 'bg-secondary text-white'
+                            : 'bg-secondary/50 dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                         } transition-colors`}
                         onClick={() => setActiveCategory(category.value)}
                       >
@@ -198,7 +198,7 @@ const Publications = () => {
                       <p className="text-lg text-foreground/70">No publications match your search criteria.</p>
                       <button
                         type="button"
-                        className="mt-4 px-4 py-2 bg-primary text-white rounded-md"
+                        className="mt-4 px-4 py-2 bg-secondary text-white rounded-md"
                         onClick={() => {
                           setActiveCategory('all');
                           setSearchQuery('');
@@ -248,7 +248,7 @@ const Publications = () => {
                       <p className="text-lg text-foreground/70">No publications match your search criteria.</p>
                       <button
                         type="button"
-                        className="mt-4 px-4 py-2 bg-primary text-white rounded-md"
+                        className="mt-4 px-4 py-2 bg-secondary text-white rounded-md"
                         onClick={() => {
                           setActiveCategory('all');
                           setSearchQuery('');

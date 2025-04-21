@@ -63,8 +63,8 @@ const Events = () => {
                       type="button"
                       className={`flex-1 px-4 py-2 ${
                         activeView === 'upcoming'
-                          ? 'bg-primary text-white'
-                          : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-200 hover:bg-secondary/50 dark:hover:bg-gray-600'
+                          ? 'bg-secondary text-white'
+                          : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-100 hover:bg-secondary/50 dark:hover:bg-gray-600'
                       }`}
                       onClick={() => setActiveView('upcoming')}
                     >
@@ -74,7 +74,7 @@ const Events = () => {
                       type="button"
                       className={`flex-1 px-4 py-2 ${
                         activeView === 'past'
-                          ? 'bg-primary text-white'
+                          ? 'bg-secondary text-white'
                           : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-200 hover:bg-secondary/50 dark:hover:bg-gray-600'
                       }`}
                       onClick={() => setActiveView('past')}
@@ -95,7 +95,7 @@ const Events = () => {
                         key={category.value}
                         className={`px-3 py-1.5 rounded-full text-sm ${
                           activeCategory === category.value
-                            ? 'bg-primary text-white'
+                            ? 'bg-secondary text-white'
                             : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                         } transition-colors`}
                         onClick={() => setActiveCategory(category.value)}
@@ -137,6 +137,7 @@ const Events = () => {
                     imageUrl={event.imageUrl}
                     registrationUrl={!event.isPast ? event.registrationUrl : undefined}
                     delay={index % 4}
+                    isPast={event.isPast}
                   />
                 ))}
 

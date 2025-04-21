@@ -12,6 +12,7 @@ interface EventCardProps {
   imageUrl?: string;
   registrationUrl?: string;
   delay?: number;
+  isPast?: boolean;
 }
 
 const EventCard = ({
@@ -22,7 +23,8 @@ const EventCard = ({
   description,
   imageUrl,
   registrationUrl,
-  delay = 0
+  delay = 0,
+  isPast = false
 }: EventCardProps) => {
   return (
     <motion.div
@@ -42,7 +44,7 @@ const EventCard = ({
         </div>
       )}
       <div className="p-6">
-        <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+        <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-highlight transition-colors">
           {title}
         </h3>
 
@@ -66,19 +68,21 @@ const EventCard = ({
         </p>
 
         <div className="flex flex-wrap gap-3">
-                      <Link
-                        to="/fbms-conference"
-                        className="inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors"
-                      >
-                        <span>View Details</span>
-                        <ArrowRight size={16} className="ml-1" />
-                      </Link>
+                      {!isPast && (
+                        <Link
+                          to="/fbms-conference"
+                          className="inline-flex items-center px-4 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/90 transition-colors"
+                        >
+                          <span>View Details</span>
+                          <ArrowRight size={16} className="ml-1" />
+                        </Link>
+                      )}
                       {registrationUrl && (
                         <a
                           href={registrationUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center px-4 py-2 bg-secondary text-primary font-medium rounded-md hover:bg-secondary/70 transition-colors"
+                          className="inline-flex items-center px-4 py-2 bg-extra text-primary font-medium rounded-md hover:bg-extra/70 transition-colors"
                         >
                           <span>Register</span>
                           <ArrowRight size={16} className="ml-1" />

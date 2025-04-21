@@ -164,7 +164,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors flex items-center"
+                  className="px-6 py-3 bg-highlight text-white font-medium rounded-md hover:bg-highlight/90 transition-colors flex items-center"
                 >
                   <Send size={18} className="mr-2" />
                   <span>Send Message</span>
@@ -185,48 +185,48 @@ const Contact = () => {
 
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <div className="bg-secondary dark:bg-gray-700 p-3 rounded-full mr-4">
-                      <MapPin className="text-primary" size={24} />
+                    <div className="bg-accent/20 dark:bg-accent/30 p-3 rounded-full mr-4">
+                      <MapPin className="text-accent" size={24} />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground mb-1">Address</h3>
                       <p className="text-foreground/70">
-                        Department of Anatomy<br />
-                        University of Medical Sciences, Ondo (UNIMED)<br />
-                        Ondo State, Nigeria
+                      Multidisciplinary Laboratory Building, UNIMED, Ondo<br />
+                      Medical Village, Laje Road,<br />
+                      Ondo 351101, Nigeria
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-secondary dark:bg-gray-700 p-3 rounded-full mr-4">
-                      <Mail className="text-primary" size={24} />
+                    <div className="bg-highlight/20 dark:bg-highlight/30 p-3 rounded-full mr-4">
+                      <Mail className="text-highlight" size={24} />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground mb-1">Email</h3>
                       <p className="text-foreground/70">
                         <a href="mailto:omijomone@unimed.edu.ng" className="hover:text-primary">
-                          omijomone@unimed.edu.ng
+                        theneurolab2019@gmail.com
                         </a>
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-secondary dark:bg-gray-700 p-3 rounded-full mr-4">
-                      <Phone className="text-primary" size={24} />
+                    <div className="bg-extra/20 dark:bg-extra/30 p-3 rounded-full mr-4">
+                      <Phone className="text-extra" size={24} />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground mb-1">Phone</h3>
                       <p className="text-foreground/70">
-                        Contact the Principal Investigator directly via email
+                      +2347075423888
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <div className="bg-secondary dark:bg-gray-700 p-3 rounded-full mr-4">
-                      <Clock className="text-primary" size={24} />
+                    <div className="bg-accent/20 dark:bg-accent/30 p-3 rounded-full mr-4">
+                      <Clock className="text-accent" size={24} />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground mb-1">Hours</h3>
@@ -317,7 +317,7 @@ const Contact = () => {
                 <div className="mt-6">
                   <a
                     href="mailto:omijomone@unimed.edu.ng"
-                    className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center px-6 py-3 bg-accent text-white font-medium rounded-md hover:bg-accent/90 transition-colors"
                   >
                     <Mail size={18} className="mr-2" />
                     <span>Contact the Principal Investigator</span>

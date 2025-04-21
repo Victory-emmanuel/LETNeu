@@ -48,6 +48,14 @@ export default {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
+				highlight: {
+					DEFAULT: 'hsl(var(--highlight))',
+					foreground: 'hsl(var(--highlight-foreground))'
+				},
+				extra: {
+					DEFAULT: 'hsl(var(--extra))',
+					foreground: 'hsl(var(--extra-foreground))'
+				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
@@ -120,10 +128,10 @@ export default {
 					}
 				},
 				'slide-in': {
-					'0%': { 
+					'0%': {
 						transform: 'translateX(-100%)'
 					},
-					'100%': { 
+					'100%': {
 						transform: 'translateX(0)'
 					}
 				}

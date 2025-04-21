@@ -25,9 +25,17 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215 28% 40%;
 
-    /* Teal accent */
-    --accent: 187 72% 29%;
+    /* Custom accent color - Light blue */
+    --accent: 193 90% 54%; /* #1ec4f3 */
     --accent-foreground: 0 0% 100%;
+
+    /* Custom highlight color - Pink */
+    --highlight: 342 94% 67%; /* #fa5c90 */
+    --highlight-foreground: 0 0% 100%;
+
+    /* Custom extra color - Light yellow */
+    --extra: 46 83% 72%; /* #f0d37f */
+    --extra-foreground: 215 28% 17%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -74,8 +82,17 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
+    /* Custom accent color - Darker blue for dark mode */
+    --accent: 193 80% 40%; /* Darker version of #1ec4f3 */
     --accent-foreground: 210 40% 98%;
+
+    /* Custom highlight color - Darker pink for dark mode */
+    --highlight: 342 70% 55%; /* Darker version of #fa5c8a */
+    --highlight-foreground: 210 40% 98%;
+
+    /* Custom extra color - Darker yellow for dark mode */
+    --extra: 46 60% 60%; /* Darker version of #f0d37f */
+    --extra-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -102,4 +119,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom classes */
+.team-member-image-gradient {
+  background: linear-gradient(45deg, rgba(30,196,243,0.2), rgba(250,92,138,0.2));
 }
