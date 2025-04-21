@@ -1,0 +1,106 @@
+
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <nav className="sticky top-0 bg-white/90 backdrop-blur-md z-50 shadow-sm">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+        <Link to="/" className="flex items-center space-x-2">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+              <span className="text-white font-bold text-lg">LN</span>
+            </div>
+          </motion.div>
+          <span className="font-heading font-bold text-xl text-primary">LETNeu</span>
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/research">Research</NavLink>
+          <NavLink to="/publications">Publications</NavLink>
+          <NavLink to="/team">Team</NavLink>
+          <NavLink to="/events">Events</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-primary"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden bg-white border-t"
+        >
+          <div className="container mx-auto px-4 py-3 flex flex-col space-y-4">
+            <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
+            <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>
+            <MobileNavLink to="/research" onClick={toggleMenu}>Research</MobileNavLink>
+            <MobileNavLink to="/publications" onClick={toggleMenu}>Publications</MobileNavLink>
+            <MobileNavLink to="/team" onClick={toggleMenu}>Team</MobileNavLink>
+            <MobileNavLink to="/events" onClick={toggleMenu}>Events</MobileNavLink>
+            <MobileNavLink to="/contact" onClick={toggleMenu}>Contact</MobileNavLink>
+          </div>
+        </motion.div>
+      )}
+    </nav>
+  );
+};
+
+const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) => {
+  return (
+    <Link
+      to={to}
+      className="text-foreground font-medium hover:text-primary transition-colors relative group"
+    >
+      {children}
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+    </Link>
+  );
+};
+
+const MobileNavLink = ({ 
+  to, 
+  children, 
+  onClick 
+}: { 
+  to: string; 
+  children: React.ReactNode;
+  onClick: () => void;
+}) => {
+  return (
+    <Link
+      to={to}
+      onClick={onClick}
+      className="text-foreground font-medium py-2 hover:text-primary transition-colors"
+    >
+      {children}
+    </Link>
+  );
+};
+
+export default Navbar;
