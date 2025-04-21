@@ -56,7 +56,7 @@ const Publications = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="bg-secondary/30 py-20">
+      <div className="bg-secondary/30 dark:bg-gray-800/30 py-20">
         <div className="container mx-auto px-4">
           <motion.h1
             className="text-4xl md:text-5xl font-bold text-primary mb-6"
@@ -80,11 +80,11 @@ const Publications = () => {
       </div>
 
       {/* Publications Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="mb-12">
             {/* Search and Filter Controls */}
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-border mb-8">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-border dark:border-gray-700 mb-8">
               <div className="flex flex-col md:flex-row gap-4 mb-6">
                 <div className="flex-grow">
                   <label htmlFor="search" className="block text-sm font-medium text-foreground/70 mb-1">
@@ -94,7 +94,7 @@ const Publications = () => {
                     type="text"
                     id="search"
                     placeholder="Search by title, author, or keyword..."
-                    className="w-full px-4 py-2 rounded-md border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full px-4 py-2 rounded-md border border-border dark:border-gray-700 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                   />
@@ -103,13 +103,13 @@ const Publications = () => {
                   <label className="block text-sm font-medium text-foreground/70 mb-1">
                     View Mode
                   </label>
-                  <div className="flex rounded-md overflow-hidden border border-border">
+                  <div className="flex rounded-md overflow-hidden border border-border dark:border-gray-700">
                     <button
                       type="button"
                       className={`px-4 py-2 ${
                         viewMode === 'category'
                           ? 'bg-primary text-white'
-                          : 'bg-white text-foreground hover:bg-secondary/50'
+                          : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-200 hover:bg-secondary/50 dark:hover:bg-gray-600'
                       }`}
                       onClick={() => setViewMode('category')}
                     >
@@ -120,7 +120,7 @@ const Publications = () => {
                       className={`px-4 py-2 ${
                         viewMode === 'year'
                           ? 'bg-primary text-white'
-                          : 'bg-white text-foreground hover:bg-secondary/50'
+                          : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-200 hover:bg-secondary/50 dark:hover:bg-gray-600'
                       }`}
                       onClick={() => setViewMode('year')}
                     >
@@ -143,7 +143,7 @@ const Publications = () => {
                         className={`px-3 py-1.5 rounded-full text-sm ${
                           activeCategory === category.value
                             ? 'bg-primary text-white'
-                            : 'bg-secondary text-primary hover:bg-primary/10'
+                            : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                         } transition-colors`}
                         onClick={() => setActiveCategory(category.value)}
                       >
@@ -219,7 +219,7 @@ const Publications = () => {
                   transition={{ duration: 0.3 }}
                 >
                   {getSortedYears().map((year) => (
-                    <div key={year} className="bg-white rounded-lg">
+                    <div key={year} className="bg-white dark:bg-gray-800 rounded-lg">
                       <h3 className="text-2xl font-bold text-primary mb-6 border-b pb-2">
                         {year}
                       </h3>

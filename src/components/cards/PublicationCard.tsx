@@ -31,14 +31,14 @@ const PublicationCard = ({
 }: PublicationCardProps) => {
   return (
     <motion.div
-      className="bg-white rounded-lg shadow-sm p-6 border border-border hover:shadow-md transition-shadow"
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 border border-border dark:border-gray-700 hover:shadow-md transition-shadow"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: delay * 0.1 }}
     >
       <div className="flex items-start gap-4">
-        <div className="rounded-full p-3 bg-secondary text-primary flex-shrink-0">
+        <div className="rounded-full p-3 bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 flex-shrink-0">
           <FileText size={24} />
         </div>
         <div className="flex-grow">
@@ -66,7 +66,7 @@ const PublicationCard = ({
                 href={`https://doi.org/${doi}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-xs px-3 py-1 rounded-full bg-secondary text-primary hover:bg-primary hover:text-white transition-colors"
+                className="inline-flex items-center text-xs px-3 py-1 rounded-full bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary hover:text-white transition-colors"
               >
                 <span>DOI</span>
                 <ExternalLink size={12} className="ml-1" />
@@ -77,7 +77,7 @@ const PublicationCard = ({
                 href={pdfUrl || link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-xs px-3 py-1 rounded-full bg-secondary text-primary hover:bg-primary hover:text-white transition-colors"
+                className="inline-flex items-center text-xs px-3 py-1 rounded-full bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary hover:text-white transition-colors"
               >
                 <span>{pdfUrl ? "PDF" : "View"}</span>
                 <ExternalLink size={12} className="ml-1" />

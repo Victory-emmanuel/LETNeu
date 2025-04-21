@@ -41,7 +41,7 @@ const SponsorBanner = ({ sponsors }: SponsorBannerProps) => {
   }, []);
 
   return (
-    <div className="w-full bg-white py-6 overflow-hidden border-y border-gray-100">
+    <div className="w-full bg-white dark:bg-gray-900 py-6 overflow-hidden border-y border-gray-100 dark:border-gray-800">
       <div className="container mx-auto px-4 mb-2">
         <h3 className="text-lg md:text-3xl font-semibold text-center text-primary/80">Our Sponsors</h3>
       </div>

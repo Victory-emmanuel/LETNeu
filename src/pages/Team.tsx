@@ -28,7 +28,7 @@ const Team = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="bg-secondary/30 py-20">
+      <div className="bg-secondary/30 dark:bg-gray-800/30 py-20">
         <div className="container mx-auto px-4">
           <motion.h1
             className="text-4xl md:text-5xl font-bold text-primary mb-6"
@@ -52,7 +52,7 @@ const Team = () => {
       </div>
 
       {/* Team Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Meet Our Team"
@@ -64,7 +64,7 @@ const Team = () => {
                 className={`px-4 py-2 rounded-full ${
                   activeFilter === 'all'
                     ? 'bg-primary text-white'
-                    : 'bg-secondary text-primary hover:bg-primary/10'
+                    : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                 } transition-colors`}
                 onClick={() => setActiveFilter('all')}
               >
@@ -75,7 +75,7 @@ const Team = () => {
                 className={`px-4 py-2 rounded-full ${
                   activeFilter === 'pi'
                     ? 'bg-primary text-white'
-                    : 'bg-secondary text-primary hover:bg-primary/10'
+                    : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                 } transition-colors`}
                 onClick={() => setActiveFilter('pi')}
               >
@@ -86,7 +86,7 @@ const Team = () => {
                 className={`px-4 py-2 rounded-full ${
                   activeFilter === 'researchers'
                     ? 'bg-primary text-white'
-                    : 'bg-secondary text-primary hover:bg-primary/10'
+                    : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                 } transition-colors`}
                 onClick={() => setActiveFilter('researchers')}
               >
@@ -97,7 +97,7 @@ const Team = () => {
                 className={`px-4 py-2 rounded-full ${
                   activeFilter === 'students'
                     ? 'bg-primary text-white'
-                    : 'bg-secondary text-primary hover:bg-primary/10'
+                    : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                 } transition-colors`}
                 onClick={() => setActiveFilter('students')}
               >
@@ -108,7 +108,7 @@ const Team = () => {
                 className={`px-4 py-2 rounded-full ${
                   activeFilter === 'alumni'
                     ? 'bg-primary text-white'
-                    : 'bg-secondary text-primary hover:bg-primary/10'
+                    : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                 } transition-colors`}
                 onClick={() => setActiveFilter('alumni')}
               >
@@ -140,7 +140,7 @@ const Team = () => {
         </div>
       </section>
 
-   
+
     </Layout>
   );
 };

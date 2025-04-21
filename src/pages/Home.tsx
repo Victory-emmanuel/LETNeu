@@ -41,7 +41,7 @@ const Home = () => {
       <SponsorBanner sponsors={sponsorImages} />
 
       {/* About Preview Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="About Us"
@@ -50,7 +50,7 @@ const Home = () => {
 
           <div className="mt-8 mb-12">
             <motion.div
-              className="bg-white rounded-lg shadow-md p-6 border border-border"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-border dark:border-gray-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -73,7 +73,7 @@ const Home = () => {
             {researchAreas.map((area, index) => (
               <motion.div
                 key={area.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden border border-border hover:shadow-lg transition-shadow"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-border dark:border-gray-700 hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -91,7 +91,7 @@ const Home = () => {
                   <p className="text-sm text-foreground/70 line-clamp-3 mb-4">{area.description}</p>
                   <Link
                     to="/research"
-                    className="text-accent font-medium hover:text-primary transition-colors inline-flex items-center"
+                    className=" text-accent dark:text-white font-medium hover:text-primary  transition-colors inline-flex items-center"
                   >
                     <span>Learn more</span>
                     <ArrowRight size={16} className="ml-1" />
@@ -104,7 +104,7 @@ const Home = () => {
           <div className="mt-12 text-center">
             <Link
               to="/about"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-primary  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
             >
               <span>About Our Lab</span>
               <ArrowRight size={18} className="ml-2" />
@@ -114,7 +114,7 @@ const Home = () => {
       </section>
 
       {/* Team Preview Section */}
-      <section className="py-20 bg-secondary/50">
+      <section className="py-20 bg-secondary/50 dark:bg-gray-800/50">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Our Team"
@@ -158,7 +158,7 @@ const Home = () => {
           <div className="mt-12 text-center">
             <Link
               to="/team"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center px-6 py-3 dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
             >
               <span>Meet Our Full Team</span>
               <ArrowRight size={18} className="ml-2" />
@@ -168,7 +168,7 @@ const Home = () => {
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-20 bg-secondary/30">
+      <section className="py-20 bg-secondary/30 dark:bg-gray-800/30">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Upcoming Events"
@@ -179,7 +179,7 @@ const Home = () => {
             {upcomingEvents.map((event, index) => (
               <motion.div
                 key={event.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden border border-border hover:shadow-lg transition-shadow"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-border dark:border-gray-700 hover:shadow-lg transition-shadow"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -213,7 +213,7 @@ const Home = () => {
                     <div className="flex flex-wrap gap-3">
                       <Link
                         to="/fbms-conference"
-                        className="inline-flex items-center px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors"
+                        className="inline-flex items-center px-4 py-2  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
                       >
                         <span>View Details</span>
                         <ArrowRight size={16} className="ml-1" />
@@ -239,7 +239,7 @@ const Home = () => {
           <div className="mt-12 text-center">
             <Link
               to="/events"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center px-6 py-3  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
             >
               <span>View All Events</span>
               <ArrowRight size={18} className="ml-2" />
@@ -249,7 +249,7 @@ const Home = () => {
       </section>
 
       {/* Publications Preview */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Selected Publications"
@@ -275,7 +275,7 @@ const Home = () => {
           <div className="mt-12 text-center">
             <Link
               to="/publications"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center px-6 py-3  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
             >
               <span>View All Publications</span>
               <ArrowRight size={18} className="ml-2" />
@@ -285,7 +285,7 @@ const Home = () => {
       </section>
 
       {/* Collaborators & Funders Preview */}
-      <section className="py-20 bg-secondary/50">
+      <section className="py-20 bg-secondary/50 dark:bg-gray-800/50">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Collaborators & Funders"
@@ -298,7 +298,7 @@ const Home = () => {
               {collaborators.map((collaborator, index) => (
                 <motion.div
                   key={collaborator.id}
-                  className="bg-white rounded-lg shadow-md p-4 text-center"
+                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 text-center dark:border dark:border-gray-700"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -325,7 +325,7 @@ const Home = () => {
               {funders.map((funder, index) => (
                 <motion.div
                   key={funder.id}
-                  className="bg-white rounded-lg shadow-md p-4"
+                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 dark:border dark:border-gray-700"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -347,7 +347,7 @@ const Home = () => {
           <div className="mt-12 text-center">
             <Link
               to="/about"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center px-6 py-3  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
             >
               <span>Learn More</span>
               <ArrowRight size={18} className="ml-2" />
@@ -357,7 +357,7 @@ const Home = () => {
       </section>
 
       {/* Contact Preview */}
-      <section className="py-20 bg-primary text-white">
+      <section className="py-20 bg-primary/75 dark:bg-secondary/75 text-white">
         <div className="container mx-auto px-4 text-center">
           <motion.h2
             className="text-3xl md:text-4xl font-bold mb-6"
@@ -387,7 +387,7 @@ const Home = () => {
           >
             <Link
               to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-white text-primary font-medium rounded-md hover:bg-white/90 transition-colors"
+              className="inline-flex items-center px-8 py-4  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-white/90 transition-colors"
             >
               <span>Contact Us</span>
               <ArrowRight size={18} className="ml-2" />

@@ -9,7 +9,7 @@ const Research = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="bg-secondary/30 py-20">
+      <div className="bg-secondary/30 dark:bg-gray-800/30 py-20">
         <div className="container mx-auto px-4">
           <motion.h1
             className="text-4xl md:text-5xl font-bold text-primary mb-6"
@@ -33,7 +33,7 @@ const Research = () => {
       </div>
 
       {/* Research Areas */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Research Focus Areas"
@@ -182,7 +182,7 @@ const Research = () => {
       </section>
 
       {/* Research Methodology */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16 bg-secondary/30 dark:bg-gray-800/30">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Our Research Methodology"
@@ -191,7 +191,7 @@ const Research = () => {
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
-              className="bg-white p-6 rounded-lg shadow-md border border-border"
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -207,7 +207,7 @@ const Research = () => {
             </motion.div>
 
             <motion.div
-              className="bg-white p-6 rounded-lg shadow-md border border-border"
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -223,7 +223,7 @@ const Research = () => {
             </motion.div>
 
             <motion.div
-              className="bg-white p-6 rounded-lg shadow-md border border-border"
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -239,7 +239,7 @@ const Research = () => {
             </motion.div>
 
             <motion.div
-              className="bg-white p-6 rounded-lg shadow-md border border-border"
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -255,7 +255,7 @@ const Research = () => {
             </motion.div>
 
             <motion.div
-              className="bg-white p-6 rounded-lg shadow-md border border-border"
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -271,7 +271,7 @@ const Research = () => {
             </motion.div>
 
             <motion.div
-              className="bg-white p-6 rounded-lg shadow-md border border-border"
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -290,7 +290,7 @@ const Research = () => {
       </section>
 
       {/* Research Infrastructure */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Research Infrastructure"
@@ -305,7 +305,7 @@ const Research = () => {
               transition={{ duration: 0.5 }}
               className="space-y-6"
             >
-              <div className="bg-white p-6 rounded-lg shadow-md border border-border">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700">
                 <h3 className="text-xl font-bold text-primary mb-4">Neuroscience and Toxicology Lab</h3>
                 <p className="text-foreground/80 mb-4">
                   Our specialized neuroscience laboratory is equipped with state-of-the-art tools for investigating neurological development, function, and the impact of environmental toxins.
@@ -326,7 +326,7 @@ const Research = () => {
                 </ul>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md border border-border">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700">
                 <h3 className="text-xl font-bold text-primary mb-4">Genomics & Computational Biology Center</h3>
                 <p className="text-foreground/80 mb-4">
                   Our genomics center is equipped with next-generation sequencing technologies and high-performance computing resources for biological data analysis.
@@ -355,7 +355,7 @@ const Research = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="space-y-6"
             >
-              <div className="bg-white p-6 rounded-lg shadow-md border border-border">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700">
                 <h3 className="text-xl font-bold text-primary mb-4">Environmental Toxicology Analysis Lab</h3>
                 <p className="text-foreground/80 mb-4">
                   Our specialized facility for analyzing environmental toxins and their biological impacts features advanced analytical equipment for detecting trace amounts of metals and other toxicants.
@@ -376,7 +376,7 @@ const Research = () => {
                 </ul>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-md border border-border">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700">
                 <h3 className="text-xl font-bold text-primary mb-4">Molecular Biology and Cell Culture Facility</h3>
                 <p className="text-foreground/80 mb-4">
                   Our molecular biology lab supports research on cellular and molecular mechanisms of neurodevelopment and neurotoxicity with specialized equipment for cell and tissue culture.

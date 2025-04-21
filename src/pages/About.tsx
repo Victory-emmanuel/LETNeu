@@ -11,7 +11,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="bg-secondary/30 py-20">
+      <div className="bg-secondary/30 dark:bg-gray-800/30 py-20">
         <div className="container mx-auto px-4">
           <motion.h1
             className="text-4xl md:text-5xl font-bold text-primary mb-6"
@@ -35,7 +35,7 @@ const About = () => {
       </div>
 
       {/* About Us */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div
@@ -78,7 +78,7 @@ const About = () => {
       </section>
 
       {/* Training & Education */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16 bg-secondary/30 dark:bg-gray-800/30">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Training & Education"
@@ -92,7 +92,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white p-6 rounded-lg shadow-md border border-border mb-8"
+              className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700 mb-8"
             >
               <p className="text-foreground/80 mb-4">
                 We equally provide training to graduate students, early-career researchers, and established investigators from other institutions to gain advanced skills including:
@@ -112,7 +112,7 @@ const About = () => {
       </section>
 
       {/* Lab Members */}
-      <section className="py-16 bg-secondary/30">
+      <section className="py-16 bg-secondary/30 dark:bg-gray-800/30">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Lab Members"
@@ -155,14 +155,14 @@ const About = () => {
             ))}
           </div>
 
-      
 
-       
+
+
         </div>
       </section>
 
       {/* Collaborators & Funders */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <SectionHeading
             title="Collaborators & Funders"
@@ -174,7 +174,7 @@ const About = () => {
             {collaborators.map((collaborator, index) => (
               <motion.div
                 key={collaborator.id}
-                className="bg-white p-6 rounded-lg shadow-md border border-border"
+                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -203,7 +203,7 @@ const About = () => {
             {funders.map((funder, index) => (
               <motion.div
                 key={funder.id}
-                className="bg-white p-6 rounded-lg shadow-md border border-border"
+                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

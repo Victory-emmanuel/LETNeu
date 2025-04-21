@@ -26,7 +26,7 @@ const EventCard = ({
 }: EventCardProps) => {
   return (
     <motion.div
-      className="bg-white rounded-lg shadow-md overflow-hidden border border-border group hover:shadow-xl transition-shadow"
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-border dark:border-gray-700 group hover:shadow-xl transition-shadow"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -45,7 +45,7 @@ const EventCard = ({
         <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
           {title}
         </h3>
-        
+
         <div className="space-y-2 mb-4">
           <div className="flex items-center text-sm text-foreground/70">
             <Calendar size={16} className="mr-2" />
@@ -60,11 +60,11 @@ const EventCard = ({
             <span>{location}</span>
           </div>
         </div>
-        
+
         <p className="text-foreground/80 text-sm mb-4 line-clamp-3">
           {description}
         </p>
-        
+
         <div className="flex flex-wrap gap-3">
                       <Link
                         to="/fbms-conference"

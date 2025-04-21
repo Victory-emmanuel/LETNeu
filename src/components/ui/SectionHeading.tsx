@@ -9,11 +9,11 @@ interface SectionHeadingProps {
   children?: ReactNode;
 }
 
-const SectionHeading = ({ 
-  title, 
-  subtitle, 
+const SectionHeading = ({
+  title,
+  subtitle,
   align = "center",
-  children 
+  children
 }: SectionHeadingProps) => {
   const alignClasses = {
     left: "text-left",
@@ -23,7 +23,7 @@ const SectionHeading = ({
 
   return (
     <div className={`mb-12 ${alignClasses[align]}`}>
-      <motion.h2 
+      <motion.h2
         className="text-3xl md:text-4xl font-bold text-primary mb-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -34,8 +34,8 @@ const SectionHeading = ({
       </motion.h2>
 
       {subtitle && (
-        <motion.p 
-          className="text-lg text-muted-foreground max-w-2xl mx-auto"
+        <motion.p
+          className="text-lg text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

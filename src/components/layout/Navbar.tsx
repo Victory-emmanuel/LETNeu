@@ -2,17 +2,24 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react"; // Import Sun and Moon icons
+import { useTheme } from "@/providers/ThemeProvider"; // Import useTheme hook
+import { Button } from "@/components/ui/button"; // Import Button component
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useTheme(); // Get theme state and setter
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
-    <nav className="sticky top-0 bg-white/90 backdrop-blur-md z-50 shadow-sm">
+    <nav className="sticky top-0 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 shadow-sm dark:shadow-gray-800">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <motion.div
@@ -20,14 +27,14 @@ const Navbar = () => {
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-lg">LN</span>
+              <span className="text-white dark:text-secondary font-bold text-lg">LN</span>
             </div>
           </motion.div>
-          <span className="font-heading font-bold text-xl text-primary">LETNeu</span>
+          <span className="font-heading font-bold text-xl text-primary dark:text-primary">LETNeu</span>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex items-center space-x-8">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/research">Research</NavLink>
@@ -35,16 +42,28 @@ const Navbar = () => {
           <NavLink to="/team">Team</NavLink>
           <NavLink to="/events">Events</NavLink>
           <NavLink to="/contact">Contact</NavLink>
+          {/* Theme Toggle Button - Desktop */}
+          <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme">
+            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          </Button>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-primary"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Menu Button & Theme Toggle */}        
+        <div className="md:hidden flex items-center space-x-2">
+           {/* Theme Toggle Button - Mobile */}
+           <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme">
+            <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 text-primary dark:text-primary-foreground" />
+            <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-primary dark:text-primary-foreground" />
+          </Button>
+          <button
+            className="text-primary dark:text-primary-foreground"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -54,7 +73,7 @@ const Navbar = () => {
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden bg-white border-t"
+          className="md:hidden bg-white dark:bg-gray-900 border-t dark:border-gray-800"
         >
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-4">
             <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
@@ -75,7 +94,7 @@ const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) =>
   return (
     <Link
       to={to}
-      className="text-foreground font-medium hover:text-primary transition-colors relative group"
+      className="text-foreground dark:text-gray-300 font-medium hover:text-primary dark:hover:text-primary-foreground transition-colors relative group"
     >
       {children}
       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
@@ -96,7 +115,7 @@ const MobileNavLink = ({
     <Link
       to={to}
       onClick={onClick}
-      className="text-foreground font-medium py-2 hover:text-primary transition-colors"
+      className="text-foreground dark:text-gray-300 font-medium py-2 hover:text-primary dark:hover:text-primary-foreground transition-colors"
     >
       {children}
     </Link>

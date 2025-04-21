@@ -6,16 +6,16 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-white pt-12 pb-6">
+    <footer className="bg-primary dark:bg-accent text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and description */}
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <span className="text-primary font-bold text-lg">RL</span>
+              <div className="w-10 h-10 bg-white  rounded-full flex items-center justify-center">
+                <span className="text-primary dark:text-secondary font-bold text-lg">LN</span>
               </div>
-              <span className="font-heading font-bold text-xl">Research Lab</span>
+              <span className="font-heading font-bold text-xl">LETNeu</span>
             </Link>
             <p className="mt-4 text-sm text-white/80">
               Advancing scientific knowledge through innovative research and collaboration.

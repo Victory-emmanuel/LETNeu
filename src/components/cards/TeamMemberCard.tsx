@@ -27,7 +27,7 @@ const TeamMemberCard = ({
 }: TeamMemberCardProps) => {
   return (
     <motion.div
-      className="bg-white rounded-lg shadow-md overflow-hidden transform transition-all hover:shadow-lg"
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden transform transition-all hover:shadow-lg dark:border dark:border-gray-700"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
