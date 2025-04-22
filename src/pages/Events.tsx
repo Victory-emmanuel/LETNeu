@@ -24,10 +24,18 @@ const Events = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="bg-secondary/30 dark:bg-gray-800/30 py-20">
-        <div className="container mx-auto px-4">
+      <div
+        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: ` url('https://i.postimg.cc/CxGmYd8v/R2-FBMS-2025-Conference-Advert-B.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70 z-0"></div>
+        <div className="container mx-auto px-4 py-20 relative z-10 text-center">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold text-primary mb-6"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -35,12 +43,12 @@ const Events = () => {
             Events & Seminars
           </motion.h1>
           <motion.div
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <p className="text-xl text-foreground/80">
+            <p className="text-xl text-white/90">
               Join us for upcoming events, workshops, seminars, and conferences to learn about our latest research.
             </p>
           </motion.div>

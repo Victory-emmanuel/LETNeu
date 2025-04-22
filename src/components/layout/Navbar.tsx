@@ -85,8 +85,7 @@ const Navbar = () => {
         >
           <div className="container mx-auto px-4 py-3 flex flex-col space-y-4">
             <MobileNavLink to="/" onClick={toggleMenu}>Home</MobileNavLink>
-            <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>
-           
+            <MobileNavLink to="/about" onClick={toggleMenu}>About</MobileNavLink>          
             <MobileNavLink to="/publications" onClick={toggleMenu}>Publications</MobileNavLink>
             <MobileNavLink to="/team" onClick={toggleMenu}>Team</MobileNavLink>
             <MobileNavLink to="/events" onClick={toggleMenu}>Events</MobileNavLink>
@@ -102,7 +101,7 @@ const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) =>
   return (
     <Link
       to={to}
-      className="text-foreground dark:text-secondary font-medium hover:text-primary dark:hover:text-secondary-foreground transition-colors relative group"
+      className="text-foreground dark:text-secondary font-medium hover:text-primary dark:hover:text-secondary transition-colors relative group"
     >
       {children}
       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-highlight transition-all duration-300 group-hover:w-full"></span>

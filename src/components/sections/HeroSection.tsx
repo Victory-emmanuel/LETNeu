@@ -18,7 +18,7 @@ const HeroSection = ({
     <div
       className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
@@ -51,7 +51,7 @@ const HeroSection = ({
         >
           <Link
             to="/contact"
-            className="inline-flex items-center px-6 py-3 bg-highlight text-white font-medium rounded-md hover:bg-highlight/90 transition-colors"
+            className="inline-flex items-center px-6 py-3 bg-red-600 text-white font-medium rounded-md hover:bg-highlight/90 transition-colors"
           >
             <span>Contact Us</span>
             <ArrowRight size={18} className="ml-2" />

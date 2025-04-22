@@ -1,25 +1,61 @@
 
 import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/ui/SectionHeading";
 import TeamMemberCard from "@/components/cards/TeamMemberCard";
-import { principalInvestigators, researchers, graduate, alumni } from "@/data/teamData";
-import { researchAreas } from "@/data/researchData";
+import { principalInvestigators, researchers } from "@/data/teamData";
 import { collaborators, funders } from "@/data/collaboratorsData";
 
+// Import the video file
+import elegansVideo from "@/assets/elegans.mp4";
+
 const About = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    const handleError = () => {
+      console.error('Video failed to load');
+      videoElement.classList.add('error');
+    };
+
+    const handleCanPlay = () => {
+      console.log('Video can play');
+      // Remove error class if it was previously added
+      videoElement.classList.remove('error');
+    };
+
+    // Add event listeners
+    videoElement.addEventListener('error', handleError);
+    videoElement.addEventListener('canplay', handleCanPlay);
+
+    // Check if video is already in error state
+    if (videoElement.error) {
+      handleError();
+    }
+
+    // Cleanup
+    return () => {
+      videoElement.removeEventListener('error', handleError);
+      videoElement.removeEventListener('canplay', handleCanPlay);
+    };
+  }, []);
   return (
     <Layout>
       {/* Hero Section */}
       <div
-        className="py-20 relative bg-cover bg-center"
+        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.postimg.cc/J438vgZV/C-elegans-stained.jpg')`,
+          backgroundImage: ` url('https://i.postimg.cc/tgS7t2WK/Untitled-design-2.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
       >
-        <div className="container mx-auto px-4">
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/20 z-0"></div> */}
+        <div className="container mx-auto px-4 py-20 relative z-10 text-center">
           <motion.h1
             className="text-4xl md:text-5xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -29,17 +65,19 @@ const About = () => {
             About Our Lab
           </motion.h1>
           <motion.div
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl  text-white/90 mb-8">
               The Laboratory for Experimental and Translational Neurobiology (LETNeu) is a research-intensive group at the University of Medical Sciences, Ondo (UNIMED), dedicated to understanding the complex interplay between genetic and environmental factors in brain disorders.
             </p>
           </motion.div>
         </div>
       </div>
+
+
 
       {/* About Us */}
       <section className="py-16 bg-white dark:bg-gray-900">
@@ -83,6 +121,41 @@ const About = () => {
           </div>
         </div>
       </section>
+        {/* C. elegans Video Section */}
+        <section className="py-12 bg-secondary/20 dark:bg-gray-800/20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">C. elegans in Action</h2>
+
+            <div className="rounded-lg overflow-hidden shadow-lg border border-accent/20">
+              <video
+                ref={videoRef}
+                className="w-full aspect-video"
+                controls
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                src={elegansVideo}
+              />
+              {/* Fallback image in case video doesn't load */}
+              <img
+                src="https://i.postimg.cc/J438vgZV/C-elegans-stained.jpg"
+                alt="C. elegans under microscope"
+                className="hidden video-fallback w-full aspect-video object-cover"
+              />
+            </div>
+          
+          </motion.div>
+        </div>
+      </section>
 
       {/* Training & Education */}
       <section className="py-16 bg-secondary/30 dark:bg-gray-800/30">
@@ -90,7 +163,7 @@ const About = () => {
           <SectionHeading
             title="Training & Education"
             subtitle="Advancing neuroscience research and training in the region"
-            align="left"
+            align="center"
           />
 
           <div className="mt-8">
@@ -101,7 +174,7 @@ const About = () => {
               transition={{ duration: 0.5 }}
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700 mb-8"
             >
-              <p className="text-foreground/80 mb-4">
+              <p className="text-foreground/80 mb-4 ">
                 We equally provide training to graduate students, early-career researchers, and established investigators from other institutions to gain advanced skills including:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-foreground/80 mb-4">

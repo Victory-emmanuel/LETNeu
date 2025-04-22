@@ -44,10 +44,18 @@ const Contact = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="bg-secondary/30 dark:bg-gray-800/30 py-20">
-        <div className="container mx-auto px-4">
+      <div
+        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://i.postimg.cc/VsD1Sd9h/124243.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70 z-0"></div>
+        <div className="container mx-auto px-4 py-20 relative z-10 text-center">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold text-primary mb-6"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -55,12 +63,12 @@ const Contact = () => {
             Contact Us
           </motion.h1>
           <motion.div
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <p className="text-xl text-foreground/80">
+            <p className="text-xl text-white/90">
               Get in touch with the Laboratory for Experimental and Translational Neurobiology (LETNeu) for inquiries, collaborations, or to learn more about our research and training opportunities.
             </p>
           </motion.div>
@@ -228,13 +236,7 @@ const Contact = () => {
                     <div className="bg-accent/20 dark:bg-accent/30 p-3 rounded-full mr-4">
                       <Clock className="text-accent" size={24} />
                     </div>
-                    <div>
-                      <h3 className="font-bold text-foreground mb-1">Hours</h3>
-                      <p className="text-foreground/70">
-                        Monday - Friday: 8:00 AM - 4:00 PM<br />
-                        Saturday - Sunday: Closed
-                      </p>
-                    </div>
+
                   </div>
                 </div>
               </motion.div>
@@ -248,7 +250,7 @@ const Contact = () => {
                 <div className="relative h-80 rounded-lg shadow-md overflow-hidden">
                   <iframe
                     title="Lab Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.1723227026384!2d4.8033391!3d7.1114693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1047a1b5b8b2b0c3%3A0x6c6a0a14c5c0e2e9!2sUniversity%20of%20Medical%20Sciences%2C%20Ondo!5e0!3m2!1sen!2sng!4v1687487054415!5m2!1sen!2sng"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1979.5861613513192!2d4.8033391!3d7.1114693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1047a1b5b8b2b0c3%3A0x6c6a0a14c5c0e2e9!2sMultidisciplinary%20Laboratory%20Building%2C%20UNIMED%2C%20Medical%20Village%2C%20Laje%20Road%2C%20Ondo!5e0!3m2!1sen!2sng!4v1687487054415!5m2!1sen!2sng"
                     className="w-full h-full border-0"
                     allowFullScreen
                     referrerPolicy="no-referrer-when-downgrade"

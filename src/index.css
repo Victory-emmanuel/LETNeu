@@ -125,3 +125,14 @@
 .team-member-image-gradient {
   background: linear-gradient(45deg, rgba(30,196,243,0.2), rgba(133, 0, 38, 0.2));
 }
+
+/* Video fallback handling */
+video:not([src]), video[src=""] {
+  display: none;
+}
+
+video:not([src]) + .video-fallback,
+video[src=""] + .video-fallback,
+video.error + .video-fallback {
+  display: block !important;
+}

@@ -8,10 +8,18 @@ const Research = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="bg-secondary/30 dark:bg-gray-800/30 py-20">
-        <div className="container mx-auto px-4">
+      <div
+        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.postimg.cc/Kz9zCTrL/research-bg.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70 z-0"></div>
+        <div className="container mx-auto px-4 py-20 relative z-10 text-center">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold text-primary mb-6"
+            className="text-4xl md:text-5xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -24,7 +32,7 @@ const Research = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <p className="text-xl text-foreground/80">
+            <p className="text-xl text-white/90">
               Our research focuses on understanding the complex interactions between environmental factors, genetics, and neurological development and disorders.
             </p>
           </motion.div>
