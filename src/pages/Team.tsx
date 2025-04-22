@@ -71,7 +71,7 @@ const Team = () => {
                 type="button"
                 className={`px-4 py-2 rounded-full ${
                   activeFilter === 'all'
-                    ? 'bg-primary text-white'
+                    ? 'bg-primary text-white dark:bg-secondary dark:text-white'
                     : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                 } transition-colors`}
                 onClick={() => setActiveFilter('all')}
@@ -82,7 +82,7 @@ const Team = () => {
                 type="button"
                 className={`px-4 py-2 rounded-full ${
                   activeFilter === 'pi'
-                    ? 'bg-primary text-white'
+                    ? 'bg-primary text-white dark:bg-secondary dark:text-white'
                     : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                 } transition-colors`}
                 onClick={() => setActiveFilter('pi')}
@@ -93,7 +93,7 @@ const Team = () => {
                 type="button"
                 className={`px-4 py-2 rounded-full ${
                   activeFilter === 'researchers'
-                    ? 'bg-primary text-white'
+                    ? 'bg-primary text-white dark:bg-secondary dark:text-white'
                     : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                 } transition-colors`}
                 onClick={() => setActiveFilter('researchers')}
@@ -104,7 +104,7 @@ const Team = () => {
                 type="button"
                 className={`px-4 py-2 rounded-full ${
                   activeFilter === 'students'
-                    ? 'bg-primary text-white'
+                    ? 'bg-primary text-white dark:bg-secondary dark:text-white'
                     : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                 } transition-colors`}
                 onClick={() => setActiveFilter('students')}
@@ -115,7 +115,7 @@ const Team = () => {
                 type="button"
                 className={`px-4 py-2 rounded-full ${
                   activeFilter === 'alumni'
-                    ? 'bg-primary text-white'
+                    ? 'bg-primary text-white dark:bg-secondary dark:text-white'
                     : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
                 } transition-colors`}
                 onClick={() => setActiveFilter('alumni')}
