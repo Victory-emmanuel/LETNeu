@@ -16,11 +16,11 @@ export const upcomingEvents: Event[] = [
   {
     id: 1,
     title: "FBMS International Conference and Symposiums",
-    date: "June 4-6, 2025",
+    date: "March 10, 2025 ( Deadline )",
     time: "10:00 AM daily",
     location: "TETfund Building, UNIMED Laje Campus",
     description: "Theme: Innovating Biomedical Research for Transformative National Policies. Featuring plenary speakers Prof. Olumide A.T. Ogundahunsi and Prof. Samuel O. Oluwafemi. Subthemes include advances in molecular biomedicine, neuroscience and neuro-technologies, innovative approaches in phytomedicine, endocrinology and reproductive physiology, anatomical bioanthropology, computational biology and bioinformatics, and artificial intelligence in biomedical research.",
-    imageUrl: "https://i.postimg.cc/CxGmYd8v/R2-FBMS-2025-Conference-Advert-B.jpg",
+    imageUrl: "https://i.postimg.cc/mkSwJr3p/Whats-App-Image-2025-04-28-at-16-49-43.jpg",
     registrationUrl: "https://forms.gle/byvJ45Z1MFWvi11E9",
     category: 'conference'
   }

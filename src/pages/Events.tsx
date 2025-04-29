@@ -27,7 +27,7 @@ const Events = () => {
       <div
         className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: ` url('https://i.postimg.cc/CxGmYd8v/R2-FBMS-2025-Conference-Advert-B.jpg')`,
+          backgroundImage: ` url('https://i.postimg.cc/mkSwJr3p/Whats-App-Image-2025-04-28-at-16-49-43.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}

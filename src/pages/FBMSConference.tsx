@@ -8,7 +8,8 @@ const FBMSConference = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <div className="bg-secondary/30 py-20">
+      <div className="bg-secondary/30 dark:bg-gray-800/30 py-20">
+
         <div className="container mx-auto px-4">
           <motion.h1
             className="text-4xl md:text-5xl font-bold text-primary mb-6"
@@ -46,13 +47,13 @@ const FBMSConference = () => {
       </div>
 
       {/* Main Content */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column - Main Content */}
             <div className="lg:col-span-2">
               <motion.div
-                className="bg-white rounded-lg shadow-md p-6 border border-border mb-8"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-border dark:border-gray-700 mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -76,7 +77,7 @@ const FBMSConference = () => {
               </motion.div>
 
               <motion.div
-                className="bg-white rounded-lg shadow-md p-6 border border-border mb-8"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-border dark:border-gray-700 mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -85,9 +86,24 @@ const FBMSConference = () => {
                 <h2 className="text-2xl font-bold text-primary mb-4">Plenary Speakers</h2>
 
                 <div className="space-y-6">
+                <div className="flex flex-col md:flex-row gap-4">
+                    <div className="md:w-1/4">
+                      <div className="aspect-square rounded-lg bg-secondary/50 dark:bg-gray-700/50 flex items-center justify-center">
+                        <Users size={64} className="text-primary/50" />
+                      </div>
+                    </div>
+                    <div className="md:w-3/4">
+                      <h3 className="text-lg font-bold text-primary">Samuel O. Oluwafemi, PhD</h3>
+                      <p className="text-accent mb-2">Professor of Nanotechnology</p>
+                      <p className="text-sm text-foreground/70">
+                        Leader, Nanotechnology for Biological, Energy, and Water (CHEM-NANOBEW) Group<br />
+                        University of Johannesburg, South Africa
+                      </p>
+                    </div>
+                  </div>
                   <div className="flex flex-col md:flex-row gap-4">
                     <div className="md:w-1/4">
-                      <div className="aspect-square rounded-lg bg-secondary/50 flex items-center justify-center">
+                      <div className="aspect-square rounded-lg bg-secondary/50 dark:bg-gray-700/50 flex items-center justify-center">
                         <Users size={64} className="text-primary/50" />
                       </div>
                     </div>
@@ -101,26 +117,12 @@ const FBMSConference = () => {
                     </div>
                   </div>
 
-                  <div className="flex flex-col md:flex-row gap-4">
-                    <div className="md:w-1/4">
-                      <div className="aspect-square rounded-lg bg-secondary/50 flex items-center justify-center">
-                        <Users size={64} className="text-primary/50" />
-                      </div>
-                    </div>
-                    <div className="md:w-3/4">
-                      <h3 className="text-lg font-bold text-primary">Samuel O. Oluwafemi, PhD</h3>
-                      <p className="text-accent mb-2">Professor of Nanotechnology</p>
-                      <p className="text-sm text-foreground/70">
-                        Leader, Nanotechnology for Biological, Energy, and Water (CHEM-NANOBEW) Group<br />
-                        University of Johannesburg, South Africa
-                      </p>
-                    </div>
-                  </div>
+
                 </div>
               </motion.div>
 
               <motion.div
-                className="bg-white rounded-lg shadow-md p-6 border border-border"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-border dark:border-gray-700"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -229,7 +231,7 @@ const FBMSConference = () => {
             {/* Right Column - Sidebar */}
             <div className="lg:col-span-1">
               <motion.div
-                className="bg-white rounded-lg shadow-md p-6 border border-border mb-8"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-border dark:border-gray-700 mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -241,7 +243,7 @@ const FBMSConference = () => {
                 </h2>
                 <ul className="space-y-3 text-foreground/80">
                   <li className="flex justify-between">
-                    <span>Early bird registration (till 30 April, 2025)</span>
+                    <span>Early bird registration (till 10 May, 2025)</span>
                     <span className="font-medium">25,000 NGN</span>
                   </li>
                   <li className="flex justify-between">
@@ -266,7 +268,7 @@ const FBMSConference = () => {
                     href="https://forms.gle/byvJ45Z1MFWvi11E9"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center w-full justify-center px-4 py-2 bg-primary text-white font-medium rounded-md hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center w-full justify-center px-4 py-2 bg-primary text-white dark:text-secondary font-medium rounded-md hover:bg-primary/90 transition-colors"
                   >
                     <span>Register Now</span>
                     <ArrowRight size={16} className="ml-2" />
@@ -275,7 +277,7 @@ const FBMSConference = () => {
               </motion.div>
 
               <motion.div
-                className="bg-white rounded-lg shadow-md p-6 border border-border mb-8"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-border dark:border-gray-700 mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -299,7 +301,7 @@ const FBMSConference = () => {
               </motion.div>
 
               <motion.div
-                className="bg-white rounded-lg shadow-md p-6 border border-border"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-border dark:border-gray-700"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
