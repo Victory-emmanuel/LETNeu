@@ -35,7 +35,7 @@ const EventCard = ({
       transition={{ duration: 0.5, delay: delay * 0.1 }}
     >
       {imageUrl && (
-        <div className="aspect-w-16 aspect-h-9 relative overflow-hidden">
+        <div id="details" className="aspect-w-16 aspect-h-9 relative overflow-hidden">
           <img
             src={imageUrl}
             alt={title}
@@ -69,13 +69,20 @@ const EventCard = ({
 
         <div className="flex flex-wrap gap-3">
                       {!isPast && (
-                        <Link
-                          to="/fbms-conference"
+                        <a
+                          href="#details"
                           className="inline-flex items-center px-4 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/90 transition-colors"
                         >
                           <span>View Details</span>
                           <ArrowRight size={16} className="ml-1" />
-                        </Link>
+                        </a>
+                        // <Link
+                        //   to="https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+                        //   className="inline-flex items-center px-4 py-2 bg-accent text-white font-medium rounded-md hover:bg-accent/90 transition-colors"
+                        // >
+                        //   <span>View Details</span>
+                        //   <ArrowRight size={16} className="ml-1" />
+                        // </Link>
                       )}
                       {registrationUrl && (
                         <a

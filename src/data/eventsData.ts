@@ -15,18 +15,29 @@ export interface Event {
 export const upcomingEvents: Event[] = [
   {
     id: 1,
+    title: "LETNeu NSN 2025 Conference Travel Support",
+    date: "Tuesday, 30th June 2025 ( Deadline )",
+    time: "Unspecified",
+    location: "University of Nigeria, Enugu Campus, Enugu State",
+    description: "LETNeu will provide partial support for up to 17 aspiring/young neuroscientists to participate in the annual Neuroscience Society of Nigeria (NSN) 2025 Conference at University of Nigeria, Enugu Campus, Enugu State from 2nd – 6th September 2025.",
+    imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg",
+    registrationUrl: "https://forms.gle/B5bn4r5xFde7mWrKA",
+    category: 'conference'
+  }
+];
+
+export const pastEvents: Event[] = [
+  {
+    id: 1,
     title: "FBMS International Conference and Symposiums",
     date: "March 10, 2025 ( Deadline )",
     time: "10:00 AM daily",
     location: "TETfund Building, UNIMED Laje Campus",
     description: "Theme: Innovating Biomedical Research for Transformative National Policies. Featuring plenary speakers Prof. Olumide A.T. Ogundahunsi and Prof. Samuel O. Oluwafemi. Subthemes include advances in molecular biomedicine, neuroscience and neuro-technologies, innovative approaches in phytomedicine, endocrinology and reproductive physiology, anatomical bioanthropology, computational biology and bioinformatics, and artificial intelligence in biomedical research.",
     imageUrl: "https://i.postimg.cc/mkSwJr3p/Whats-App-Image-2025-04-28-at-16-49-43.jpg",
-    registrationUrl: "https://forms.gle/byvJ45Z1MFWvi11E9",
-    category: 'conference'
-  }
-];
-
-export const pastEvents: Event[] = [
+    isPast: true,
+    category: 'workshop'
+  },
   {
     id: 2,
     title: "New Research Publication",
