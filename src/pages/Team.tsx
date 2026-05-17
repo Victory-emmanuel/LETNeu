@@ -3,27 +3,34 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import TeamMemberCard from "@/components/cards/TeamMemberCard";
-import { principalInvestigators, researchers, graduate, alumni, allTeamMembers } from "@/data/teamData";
+import type { TeamMember } from "@/data/teamData";
+import { administration, faculty, researchAssociatesAndGraduateTrainees } from "@/data/teamData";
 
 const Team = () => {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'pi' | 'researchers' | 'students' | 'alumni'>('all');
+  const [activeFilter, setActiveFilter] = useState<'administration' | 'faculty' | 'research'>('administration');
 
-  // Filter team members based on active filter
   const filteredMembers = () => {
     switch (activeFilter) {
-      case 'pi':
-        return principalInvestigators;
-      case 'researchers':
-        return researchers;
-      case 'students':
-        return graduate;
-      case 'alumni':
-        return alumni;
+      case 'administration':
+        return administration;
+      case 'faculty':
+        return faculty;
+      case 'research':
+        return researchAssociatesAndGraduateTrainees;
       default:
-        return allTeamMembers;
+        return administration;
     }
   };
+
+  const researchMemberIds = new Set<number>([
+    ...faculty,
+    ...researchAssociatesAndGraduateTrainees,
+  ].map((member) => member.id));
+
+  const isBioMember = (member: TeamMember) =>
+    researchMemberIds.has(member.id) && Boolean(member.detailedBio);
 
   return (
     <Layout>
@@ -66,67 +73,32 @@ const Team = () => {
             title="Meet Our Team"
             subtitle="A diverse group of scientists working at the forefront of research"
           >
-            <div className="flex flex-wrap justify-center gap-2 mt-8">
-              <button
-                type="button"
-                className={`px-4 py-2 rounded-full ${
-                  activeFilter === 'all'
-                    ? 'bg-primary text-white dark:bg-secondary dark:text-white'
-                    : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
-                } transition-colors`}
-                onClick={() => setActiveFilter('all')}
-              >
-                All Members
-              </button>
-              <button
-                type="button"
-                className={`px-4 py-2 rounded-full ${
-                  activeFilter === 'pi'
-                    ? 'bg-primary text-white dark:bg-secondary dark:text-white'
-                    : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
-                } transition-colors`}
-                onClick={() => setActiveFilter('pi')}
-              >
-                Principal Investigators
-              </button>
-              <button
-                type="button"
-                className={`px-4 py-2 rounded-full ${
-                  activeFilter === 'researchers'
-                    ? 'bg-primary text-white dark:bg-secondary dark:text-white'
-                    : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
-                } transition-colors`}
-                onClick={() => setActiveFilter('researchers')}
-              >
-                Researchers
-              </button>
-              <button
-                type="button"
-                className={`px-4 py-2 rounded-full ${
-                  activeFilter === 'students'
-                    ? 'bg-primary text-white dark:bg-secondary dark:text-white'
-                    : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
-                } transition-colors`}
-                onClick={() => setActiveFilter('students')}
-              >
-                Graduate Students
-              </button>
-              <button
-                type="button"
-                className={`px-4 py-2 rounded-full ${
-                  activeFilter === 'alumni'
-                    ? 'bg-primary text-white dark:bg-secondary dark:text-white'
-                    : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
-                } transition-colors`}
-                onClick={() => setActiveFilter('alumni')}
-              >
-                Alumni & Interns
-              </button>
-            </div>
+            <Tabs value={activeFilter} onValueChange={(value) => setActiveFilter(value as 'administration' | 'faculty' | 'research')}>
+              <TabsList className="flex flex-wrap justify-center gap-6 mt-8 bg-transparent p-0 rounded-none">
+                <TabsTrigger
+                  value="administration"
+                  className="py-3 px-4 text-sm font-semibold transition whitespace-normal text-center border-b-2 border-transparent data-[state=active]:border-red-600 data-[state=active]:text-red-600 text-gray-600 dark:text-gray-300 hover:text-red-600"
+                >
+                  Administration
+                </TabsTrigger>
+                <TabsTrigger
+                  value="faculty"
+                  className="py-3 px-4 text-sm font-semibold transition whitespace-normal text-center border-b-2 border-transparent data-[state=active]:border-red-600 data-[state=active]:text-red-600 text-gray-600 dark:text-gray-300 hover:text-red-600"
+                >
+                  Faculty
+                </TabsTrigger>
+                <TabsTrigger
+                  value="research"
+                  className="py-3 px-4 text-sm font-semibold transition whitespace-normal text-center border-b-2 border-transparent data-[state=active]:border-red-600 data-[state=active]:text-red-600 text-gray-600 dark:text-gray-300 hover:text-red-600 max-w-[11rem] sm:max-w-none break-words"
+                >
+                  Research Associates & Graduate Trainees
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
           </SectionHeading>
 
           <motion.div
-            className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
             layout
             transition={{ duration: 0.5, type: "spring" }}
           >
@@ -139,8 +111,12 @@ const Team = () => {
                 image={member.image}
                 email={member.email}
                 linkedin={member.linkedin}
+                facebook={member.facebook}
+                twitter={member.twitter}
+                instagram={member.instagram}
                 position={member.position}
                 detailedBio={member.detailedBio}
+                showBio={isBioMember(member)}
                 delay={index % 3}
               />
             ))}

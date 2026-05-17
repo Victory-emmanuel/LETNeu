@@ -7,11 +7,14 @@ export interface TeamMember {
   image: string;
   email?: string;
   linkedin?: string;
+  facebook?: string;
+  twitter?: string;
+  instagram?: string;
   detailedBio?: string;
   position?: string;
 }
 
-export const principalInvestigators: TeamMember[] = [
+export const administration: TeamMember[] = [
   {
     id: 1,
     name: "Dr. Omamuyovwi M. Ijomone",
@@ -25,7 +28,7 @@ export const principalInvestigators: TeamMember[] = [
   }
 ];
 
-export const researchers: TeamMember[] = [
+export const faculty: TeamMember[] = [
   {
     id: 2,
     name: "Dr. Olayemi K. Ijomone",
@@ -48,7 +51,7 @@ export const researchers: TeamMember[] = [
   }
 ];
 
-export const graduate: TeamMember[] = [
+export const researchAssociatesAndGraduateTrainees: TeamMember[] = [
   {
     id: 4,
     name: "Ukwubile Ileje Inelo",
@@ -121,10 +124,7 @@ export const graduate: TeamMember[] = [
     detailedBio: "Miss Oluoma earned her bachelor of science degree in human anatomy from Nnamdi Azikiwe University. She is currently a Master's student in the lab. Her current research seeks to unravel the role of iron overload in the neurexin-neuroligin complex- implication for autism spectrum disorders. She is currently skilled in some research procedures like immunohistochemistry, basic tissue processing, photomicrography, C. elegans handling, and rat brain tissue dissection.\nIn her leisure, Oluoma loves to read novels, watch movies, and listen to music.",
     image: "https://i.postimg.cc/8chP49cz/m11.png",
     email: "oluomaaneke@gmail.com"
-  }
-];
-
-export const alumni: TeamMember[] = [
+  },
   {
     id: 12,
     name: "Joy Dubem Iroegbu",
@@ -169,4 +169,4 @@ export const alumni: TeamMember[] = [
   }
 ];
 
-export const allTeamMembers = [...principalInvestigators, ...researchers, ...graduate, ...alumni];
+export const allTeamMembers = [...administration, ...faculty, ...researchAssociatesAndGraduateTrainees];

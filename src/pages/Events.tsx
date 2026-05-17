@@ -4,21 +4,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/ui/SectionHeading";
 import EventCard from "@/components/cards/EventCard";
-import { upcomingEvents, pastEvents, eventCategories } from "@/data/eventsData";
+import { upcomingEvents, pastEvents } from "@/data/eventsData";
 
 const Events = () => {
   const [activeView, setActiveView] = useState<'upcoming' | 'past'>('upcoming');
-  const [activeCategory, setActiveCategory] = useState<string>('all');
 
-  // Filter events based on active category
+  // Filter events based on active view
   const filteredEvents = () => {
-    const eventsToFilter = activeView === 'upcoming' ? upcomingEvents : pastEvents;
-
-    if (activeCategory === 'all') {
-      return eventsToFilter;
-    }
-
-    return eventsToFilter.filter(event => event.category === activeCategory);
+    return activeView === 'upcoming' ? upcomingEvents : pastEvents;
   };
 
   return (
@@ -27,7 +20,7 @@ const Events = () => {
       <div
         className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: ` url('https://i.postimg.cc/mkSwJr3p/Whats-App-Image-2025-04-28-at-16-49-43.jpg')`,
+          backgroundImage: ` url('/hero-media/ISN-30.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center'
         }}
@@ -40,7 +33,7 @@ const Events = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Events & Seminars
+            Events & Updates
           </motion.h1>
           <motion.div
             className="max-w-3xl mx-auto"
@@ -61,67 +54,38 @@ const Events = () => {
           <div className="mb-12">
             {/* Event Filter Controls */}
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-border dark:border-gray-700 mb-8">
-              <div className="flex flex-col md:flex-row gap-4 items-center">
-                <div className="md:w-1/4">
-                  <label className="block text-sm font-medium text-foreground/70 mb-1">
-                    Event Type
-                  </label>
-                  <div className="flex rounded-md overflow-hidden border border-border dark:border-gray-700">
-                    <button
-                      type="button"
-                      className={`flex-1 px-4 py-2 ${
-                        activeView === 'upcoming'
-                          ? 'bg-primary text-white dark:bg-secondary dark:text-white'
-                          : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-100 hover:bg-secondary/50 dark:hover:bg-gray-600'
-                      }`}
-                      onClick={() => setActiveView('upcoming')}
-                    >
-                      Upcoming
-                    </button>
-                    <button
-                      type="button"
-                      className={`flex-1 px-4 py-2 ${
-                        activeView === 'past'
-                          ? 'bg-primary text-white dark:bg-secondary dark:text-white'
-                          : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-200 hover:bg-secondary/50 dark:hover:bg-gray-600'
-                      }`}
-                      onClick={() => setActiveView('past')}
-                    >
-                      Past
-                    </button>
-                  </div>
-                </div>
-
-                <div className="flex-grow">
-                  <label className="block text-sm font-medium text-foreground/70 mb-1">
-                    Filter by Category
-                  </label>
-                  <div className="flex flex-wrap gap-2">
-                    {eventCategories.map((category) => (
-                      <button
-                        type="button"
-                        key={category.value}
-                        className={`px-3 py-1.5 rounded-full text-sm ${
-                          activeCategory === category.value
-                            ? 'bg-primary text-white dark:bg-secondary dark:text-white'
-                            : 'bg-secondary dark:bg-gray-700 text-primary dark:text-gray-200 hover:bg-primary/10 dark:hover:bg-primary/20'
-                        } transition-colors`}
-                        onClick={() => setActiveCategory(category.value)}
-                      >
-                        {category.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+              <label className="block text-sm font-medium text-foreground/70 mb-3">
+                Event Type
+              </label>
+              <div className="flex rounded-md overflow-hidden border border-border dark:border-gray-700 w-fit">
+                <button
+                  type="button"
+                  className={`px-6 py-2 ${
+                    activeView === 'upcoming'
+                      ? 'bg-primary text-white dark:bg-secondary dark:text-white'
+                      : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-100 hover:bg-secondary/50 dark:hover:bg-gray-600'
+                  }`}
+                  onClick={() => setActiveView('upcoming')}
+                >
+                  Upcoming
+                </button>
+                <button
+                  type="button"
+                  className={`px-6 py-2 ${
+                    activeView === 'past'
+                      ? 'bg-primary text-white dark:bg-secondary dark:text-white'
+                      : 'bg-white dark:bg-gray-700 text-foreground dark:text-gray-200 hover:bg-secondary/50 dark:hover:bg-gray-600'
+                  }`}
+                  onClick={() => setActiveView('past')}
+                >
+                  Past
+                </button>
               </div>
             </div>
 
             {/* Results Count */}
             <div className="mb-6 text-foreground/70">
               Showing {filteredEvents().length} {activeView} events
-              {activeCategory !== 'all' && (
-                <> in {eventCategories.find(cat => cat.value === activeCategory)?.label}</>
-              )}
             </div>
 
             {/* Events List */}
@@ -134,30 +98,37 @@ const Events = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {filteredEvents().map((event, index) => (
-                  <EventCard
-                    key={event.id}
-                    title={event.title}
-                    date={event.date}
-                    time={event.time}
-                    location={event.location}
-                    description={event.description}
-                    imageUrl={event.imageUrl}
-                    registrationUrl={!event.isPast ? event.registrationUrl : undefined}
-                    delay={index % 4}
-                    isPast={event.isPast}
-                  />
-                ))}
+                {filteredEvents().map((event, index) => {
+                  // Extract the preview string from our new structured data
+                  const previewDescription = Array.isArray(event.description)
+                    ? event.description[0]?.body || ""
+                    : event.description; // Fallback string protection
 
+                  return (
+                    <EventCard
+                      key={event.id}
+                      id={event.id}
+                      title={event.title}
+                      date={event.date}
+                      time={event.time}
+                      location={event.location}
+                      description={previewDescription} // Now passing a pure string snippet
+                      imageUrl={event.imageUrl}
+                      registrationUrl={!event.isPast ? event.registrationUrl : undefined}
+                      delay={index % 4}
+                      isPast={event.isPast}
+                    />
+                  );
+                })}
                 {filteredEvents().length === 0 && (
                   <div className="col-span-full text-center py-12">
                     <p className="text-lg text-foreground/70">No events match your criteria.</p>
                     <button
                       type="button"
                       className="mt-4 px-4 py-2 bg-primary text-white rounded-md"
-                      onClick={() => setActiveCategory('all')}
+                      onClick={() => setActiveView('upcoming')}
                     >
-                      Reset Filters
+                      Reset View
                     </button>
                   </div>
                 )}

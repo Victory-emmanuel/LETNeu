@@ -1,6 +1,8 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 @layer base {
   :root {
@@ -112,6 +114,7 @@
 }
 
 @layer base {
+  /* stylelint-disable at-rule-no-unknown */
   * {
     @apply border-border;
   }
@@ -119,11 +122,71 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* stylelint-enable at-rule-no-unknown */
 }
 
 /* Custom classes */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 .team-member-image-gradient {
   background: linear-gradient(45deg, rgba(30,196,243,0.2), rgba(133, 0, 38, 0.2));
+}
+
+.scroll-marquee {
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-marquee .scroll-track {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 1.5rem;
+  white-space: nowrap;
+  min-width: 100%;
+  animation-duration: 28s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+}
+
+.scroll-marquee:hover .scroll-track {
+  animation-play-state: paused;
+}
+
+.scroll-marquee.scroll-right .scroll-track {
+  animation-name: scroll-right;
+}
+
+.scroll-marquee.scroll-left .scroll-track {
+  animation-name: scroll-left;
+}
+
+.scroll-marquee .scroll-track > div {
+  white-space: normal;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* Video fallback handling */

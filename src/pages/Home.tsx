@@ -8,16 +8,18 @@ import HeroSection from "@/components/sections/HeroSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import TeamMemberCard from "@/components/cards/TeamMemberCard";
 import PublicationCard from "@/components/cards/PublicationCard";
+import EventCard from "@/components/cards/EventCard";
 import SponsorBanner from "@/components/sections/SponsorBanner";
 
 
-import { principalInvestigators, researchers } from "@/data/teamData";
+import { administration, faculty } from "@/data/teamData";
 import { recentPublications } from "@/data/publicationsData";
 import { researchAreas } from "@/data/researchData";
 import { collaborators, funders } from "@/data/collaboratorsData";
-import { upcomingEvents } from "@/data/eventsData";
+import { allEvents } from "@/data/eventsData";
 
 const Home = () => {
+  const featuredEvents = allEvents.slice(0, 3); // Show only the first 3 events on the homepage
   // Function to get icon based on research area ID
   const getResearchIcon = (id: number) => {
     switch (id) {
@@ -50,10 +52,15 @@ const Home = () => {
   return (
     <Layout>
       <HeroSection
-        title="Laboratory for Experimental and Translational Neurobiology"
-        subtitle="A research-intensive group at the University of Medical Sciences, Ondo (UNIMED), studying neurotoxicity, mechanisms of neurodegeneration, gene-environment interactions, brain disorders (autism, Parkinson's, Alzheimer's), and environmental neurotoxicology."
-        backgroundImage="https://i.postimg.cc/L8Np61xx/elegans-landing.jpg"
-      />
+      title="Laboratory for Experimental and Translational Neurobiology"
+      subtitle="A research-intensive group at the University of Medical Sciences, Ondo (UNIMED), studying neurotoxicity, mechanisms of neurodegeneration, and brain disorders."
+      media={[
+      { type: 'image', url: '/hero-media/SNV_6490.jpg' },
+      { type: 'video', url: '/hero-media/elegans-1.mp4' },
+      { type: 'image', url: 'https://i.postimg.cc/L8Np61xx/elegans-landing.jpg' },
+      { type: 'image', url: '/hero-media/SNV_6483.jpg' },
+      { type: 'video', url: '/hero-media/glovehand-video2.mp4' }
+      ]}/>
 
       {/* Sponsors Banner */}
       <SponsorBanner sponsors={sponsorImages} />
@@ -87,7 +94,7 @@ const Home = () => {
           </div>
 
           <h3 className="text-2xl font-bold text-primary mb-6">Research Focus</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             {researchAreas.map((area, index) => (
               <motion.div
                 key={area.id}
@@ -98,15 +105,11 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
 
-                <div className="p-6 h-full flex flex-col">
-                  <div className="flex items-center mb-3 border-b border-accent/20 pb-2">
-                    <div className="mr-3 p-2 rounded-full bg-secondary/50 dark:bg-gray-700/50">
-                      {getResearchIcon(area.id)}
-                    </div>
-                    <h3 className="text-xl font-bold text-primary">{area.title}</h3>
+                <div className="p-8 h-full flex flex-col items-center justify-center text-center gap-4">
+                  <div className="flex items-center justify-center mb-3 rounded-full bg-secondary/30 dark:bg-gray-700/40 p-5">
+                    {getResearchIcon(area.id)}
                   </div>
-                  <p className="text-base text-foreground/80 mb-4 flex-grow">{area.description}</p>
-
+                  <h3 className="text-xl font-bold text-primary">{area.title}</h3>
                 </div>
               </motion.div>
             ))}
@@ -117,140 +120,51 @@ const Home = () => {
               to="/about"
               className="inline-flex items-center px-6 py-3 bg-primary  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
             >
-              <span>About Our Lab</span>
+              <span>Our Ongoing Research</span>
               <ArrowRight size={18} className="ml-2" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Team Preview Section */}
-      <section className="py-20 bg-secondary/50 dark:bg-gray-800/50">
+            {/* Featured Events Section */}
+      <section className="py-24 bg-gray-50 dark:bg-gray-900/50">
         <div className="container mx-auto px-4">
           <SectionHeading
-            title="Our Team"
-            subtitle="Meet our dedicated researchers and lab members."
+            title="Featured News & Events"
+            subtitle="Explore our upcoming and past conferences, workshops, and seminars."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            {principalInvestigators.map((member, index) => (
-              <TeamMemberCard
-                key={member.id}
-                name={member.name}
-                role={member.role}
-                bio={member.bio}
-                image={member.image}
-                email={member.email}
-                linkedin={member.linkedin}
-                position={member.position}
-                delay={index}
-              />
-            ))}
+          {/* Grid Layout: 3 columns on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            {featuredEvents.map((event, index) => {
+              // Safely extract the string snippet for the card view
+              const previewDescription = Array.isArray(event.description)
+                ? event.description[0]?.body || ""
+                : event.description;
 
-           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {researchers.map((member, index) => (
-              <TeamMemberCard
-                key={member.id}
-                name={member.name}
-                role={member.role}
-                bio={member.bio}
-                image={member.image}
-                email={member.email}
-                linkedin={member.linkedin}
-                position={member.position}
-                detailedBio={member.detailedBio}
-                delay={index}
-              />
-            ))}
+              return (
+                <EventCard
+                  key={event.id}
+                  id={event.id}
+                  title={event.title}
+                  date={event.date}
+                  time={event.time}
+                  location={event.location}
+                  description={previewDescription} // Passing the cleaned string
+                  imageUrl={event.imageUrl}
+                  registrationUrl={event.registrationUrl}
+                  delay={index}
+                  isPast={event.isPast}
+                />
+              );
+            })}
           </div>
-
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              to="/team"
-              className="inline-flex items-center px-6 py-3 dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
-            >
-              <span>Meet Our Full Team</span>
-              <ArrowRight size={18} className="ml-2" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Upcoming Events */}
-      <section className="py-20 bg-secondary/30 dark:bg-gray-800/30">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Upcoming Events"
-            subtitle="Join us for our upcoming conferences, workshops, and seminars."
-          />
-
-          <div className="mt-12">
-            {upcomingEvents.map((event, index) => (
-              <motion.div
-                key={event.id}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-border dark:border-gray-700 hover:shadow-lg transition-shadow"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="aspect-w-16 aspect-h-9 relative">
-                    <img
-                      src={event.imageUrl}
-                      alt={event.title}
-                      className="object-cover w-full h-full"
-                    />
-                  </div>
-                  <div className="p-6 md:col-span-2">
-                    <h3 className="text-xl font-bold text-primary mb-2">{event.title}</h3>
-                    <div className="flex flex-wrap gap-4 mb-4 text-sm text-foreground/70">
-                      <div className="flex items-center">
-                        <Calendar size={16} className="mr-1 text-primary" />
-                        <span>{event.date}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Clock size={16} className="mr-1 text-primary" />
-                        <span>{event.time}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <MapPin size={16} className="mr-1 text-primary" />
-                        <span>{event.location}</span>
-                      </div>
-                    </div>
-                    <p className="text-foreground/80 mb-6">{event.description}</p>
-                    <div className="flex flex-wrap gap-3">
-                      <Link
-                        to="/fbms-conference"
-                        className="inline-flex items-center px-4 py-2  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
-                      >
-                        <span>View Details</span>
-                        <ArrowRight size={16} className="ml-1" />
-                      </Link>
-                      {event.registrationUrl && (
-                        <a
-                          href={event.registrationUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center px-4 py-2 bg-secondary text-primary font-medium rounded-md hover:bg-secondary/70 transition-colors"
-                        >
-                          <span>Register</span>
-                          <ArrowRight size={16} className="ml-1" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
+          
+          <div className="mt-16 text-center">
             <Link
               to="/events"
-              className="inline-flex items-center px-6 py-3  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center px-8 py-3 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-bold rounded-md hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
             >
               <span>View All Events</span>
               <ArrowRight size={18} className="ml-2" />
@@ -305,105 +219,52 @@ const Home = () => {
 
           <div className="mt-12">
             <h3 className="text-2xl font-bold text-primary mb-6">Key Collaborators</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {collaborators.map((collaborator, index) => (
-                <motion.div
-                  key={collaborator.id}
-                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 text-center dark:border dark:border-gray-700"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden">
-                    <img
-                      src={collaborator.imageUrl}
-                      alt={collaborator.name}
-                      className="w-full h-full object-cover"
-                    />
+            <div className="scroll-marquee scroll-right py-2">
+              <div className="scroll-track">
+                {[...collaborators, ...collaborators].map((collaborator, index) => (
+                  <div
+                    key={`collab-${index}`}
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 text-center dark:border dark:border-gray-700 min-w-[240px]"
+                  >
+                    <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden">
+                      <img
+                        src={collaborator.imageUrl}
+                        alt={collaborator.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h4 className="font-medium text-primary">{collaborator.name}</h4>
+                    <p className="text-sm text-foreground/70">{collaborator.institution}</p>
+                    <p className="text-xs text-foreground/60">{collaborator.country}</p>
                   </div>
-                  <h4 className="font-medium text-primary">{collaborator.name}</h4>
-                  <p className="text-sm text-foreground/70">{collaborator.institution}</p>
-                  <p className="text-xs text-foreground/60">{collaborator.country}</p>
-                </motion.div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
           <div className="mt-12">
             <h3 className="text-2xl font-bold text-primary mb-6">Our Funders</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {funders.map((funder, index) => (
-                <motion.div
-                  key={funder.id}
-                  className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 dark:border dark:border-gray-700"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >  <div className="w-40 h-20 mx-auto mb-3 overflow-hidden">
-                <img
-                  src={funder.imageUrl}
-                  alt={funder.name}
-                  className="w-full h-full object-cover"
-                />
+            <div className="scroll-marquee scroll-left py-2">
+              <div className="scroll-track">
+                {[...funders, ...funders].map((funder, index) => (
+                  <div
+                    key={`funder-${index}`}
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 dark:border dark:border-gray-700 min-w-[240px]"
+                  >
+                    <div className="w-40 h-20 mx-auto mb-3 overflow-hidden">
+                      <img
+                        src={funder.imageUrl}
+                        alt={funder.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h4 className="font-medium text-primary mb-2">{funder.name}</h4>
+                    <a href={funder.website} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-500">{funder.website}</a>
+                  </div>
+                ))}
               </div>
-                  <h4 className="font-medium text-primary mb-2">{funder.name}</h4>
-                  <a href={funder.website} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-500">{funder.website}</a>
-                </motion.div>
-              ))}
             </div>
           </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              to="/about"
-              className="inline-flex items-center px-6 py-3  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-primary/90 transition-colors"
-            >
-              <span>Learn More</span>
-              <ArrowRight size={18} className="ml-2" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Preview */}
-      <section className="py-20 bg-primary/75 dark:bg-secondary/75 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Contact Us
-          </motion.h2>
-
-          <motion.p
-            className="text-xl text-white/90 max-w-2xl mx-auto mb-10"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            We provide training to graduate students, early-career researchers, and established investigators to gain advanced skills in neuroscience research.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Link
-              to="/contact"
-              className="inline-flex items-center px-8 py-4  dark:bg-black dark:text-white bg-white text-black  font-medium rounded-md hover:bg-white/90 transition-colors"
-            >
-              <span>Contact Us</span>
-              <ArrowRight size={18} className="ml-2" />
-            </Link>
-          </motion.div>
         </div>
       </section>
     </Layout>

@@ -1,17 +1,23 @@
 
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/ui/SectionHeading";
-import TeamMemberCard from "@/components/cards/TeamMemberCard";
-import { principalInvestigators, researchers } from "@/data/teamData";
-import { collaborators, funders } from "@/data/collaboratorsData";
+import { researchAreas } from "@/data/researchData";
+import { allTeamMembers } from "@/data/teamData";
 
 // Import the video file
 import elegansVideo from "@/assets/elegans.mp4";
 
 const About = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [mediaIndices, setMediaIndices] = useState<{ [key: number]: number }>({});
+
+  const heroMedia = {
+    imageUrl: "/hero-media/researcher-working.jpeg",
+    videoUrl: undefined as string | undefined,
+    altText: "Researcher Working in the Lab"
+  };
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -43,18 +49,58 @@ const About = () => {
       videoElement.removeEventListener('canplay', handleCanPlay);
     };
   }, []);
+
+  // Auto-switch media (images every 3s, videos every 5s)
+  useEffect(() => {
+    const intervals: NodeJS.Timeout[] = [];
+
+    researchAreas.forEach((area) => {
+      const hasMultipleImages = area.imageUrls && area.imageUrls.length > 1;
+      const hasMultipleVideos = area.videoUrls && area.videoUrls.length > 1;
+
+      if (hasMultipleImages || hasMultipleVideos) {
+        const interval = setInterval(() => {
+          setMediaIndices((prev) => {
+            const currentIndex = prev[area.id] || 0;
+            const itemsArray = hasMultipleVideos ? area.videoUrls : area.imageUrls;
+            const nextIndex = (currentIndex + 1) % (itemsArray?.length || 1);
+            return { ...prev, [area.id]: nextIndex };
+          });
+        }, hasMultipleVideos ? 5000 : 3000); // 5s for videos, 3s for images
+
+        intervals.push(interval);
+      }
+    });
+
+    return () => {
+      intervals.forEach((interval) => clearInterval(interval));
+    };
+  }, []);
   return (
     <Layout>
       {/* Hero Section */}
-      <div
-        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
-        style={{
-          backgroundImage: ` url('https://i.postimg.cc/tgS7t2WK/Untitled-design-2.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/5 to-black/20 z-0"></div> */}
+      <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          {heroMedia.videoUrl ? (
+            <video
+              className="h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              src={heroMedia.videoUrl}
+            />
+          ) : (
+            <img
+              className="h-full w-full object-cover"
+              src={heroMedia.imageUrl}
+              alt={heroMedia.altText}
+            />
+          )}
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+
         <div className="container mx-auto px-4 py-20 relative z-10 text-center">
           <motion.h1
             className="text-4xl md:text-5xl font-bold text-white mb-6"
@@ -62,7 +108,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            About Our Lab
+            Our Research
           </motion.h1>
           <motion.div
             className="max-w-3xl mx-auto"
@@ -71,16 +117,14 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <p className="text-xl  text-white/90 mb-8">
-              The Laboratory for Experimental and Translational Neurobiology (LETNeu) is a research-intensive group at the University of Medical Sciences, Ondo (UNIMED), dedicated to understanding the complex interplay between genetic and environmental factors in brain disorders.
+              Our research focuses on understanding the complex interactions between environmental factors, genetics, and neurological development and disorders.
             </p>
           </motion.div>
         </div>
       </div>
 
-
-
       {/* About Us */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      {/* <section className="py-16 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <motion.div
@@ -120,40 +164,157 @@ const About = () => {
             </motion.div>
           </div>
         </div>
-      </section>
-        {/* C. elegans Video Section */}
-        <section className="py-12 bg-secondary/20 dark:bg-gray-800/20">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 text-center">C. elegans in Action</h2>
+      </section> */}
 
-            <div className="rounded-lg overflow-hidden shadow-lg border border-accent/20">
-              <video
-                ref={videoRef}
-                className="w-full aspect-video"
-                controls
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                src={elegansVideo}
-              />
-              {/* Fallback image in case video doesn't load */}
-              <img
-                src="https://i.postimg.cc/J438vgZV/C-elegans-stained.jpg"
-                alt="C. elegans under microscope"
-                className="hidden video-fallback w-full aspect-video object-cover"
-              />
-            </div>
-          
-          </motion.div>
+      {/* Research Focus Areas */}
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <SectionHeading
+            title="Current Research"
+            subtitle="Our lab investigates the intersection of environmental factors, genetics, and neurological disorders"
+          />
+
+          <div className="mt-12 space-y-20">
+            {researchAreas.map((area, index) => {
+              const researchers = allTeamMembers.filter(member =>
+                area.researcherIds.includes(member.id)
+              ).slice(0, 3);
+
+              return (
+                <motion.div
+                  key={area.id}
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                >
+                  <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                    {/* Determine which media to display */}
+                    {(() => {
+                      const currentIndex = mediaIndices[area.id] || 0;
+                      const hasMultipleVideos = area.videoUrls && area.videoUrls.length > 1;
+                      const hasMultipleImages = area.imageUrls && area.imageUrls.length > 1;
+                      const currentVideo = hasMultipleVideos ? area.videoUrls?.[currentIndex] : area.videoUrl;
+                      const currentImage = hasMultipleImages ? area.imageUrls?.[currentIndex] : area.imageUrl;
+
+                      return (
+                        <div>
+                          {currentVideo ? (
+                            <video
+                              className="rounded-lg shadow-md w-full aspect-video object-cover"
+                              controls
+                              autoPlay
+                              muted
+                              loop
+                              playsInline
+                              preload="auto"
+                              src={currentVideo}
+                            />
+                          ) : (
+                            <img
+                              src={currentImage}
+                              alt={area.title}
+                              className="rounded-lg shadow-md w-full aspect-video object-cover"
+                            />
+                          )}
+                          {/* Carousel indicators */}
+                          {(hasMultipleVideos || hasMultipleImages) && (
+                            <div className="flex justify-center gap-2 mt-4">
+                              {(hasMultipleVideos ? area.videoUrls : area.imageUrls)?.map((_, idx) => (
+                                <div
+                                  key={idx}
+                                  className={`h-2 w-2 rounded-full transition-colors ${
+                                    idx === currentIndex ? 'bg-primary' : 'bg-gray-300 dark:bg-gray-600'
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })()}
+                  </div>
+
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">{area.title}</h3>
+
+                    <div className="prose prose-lg max-w-none text-foreground/80">
+                      <p className="mb-6">{area.description}</p>
+
+                      <h4 className="text-xl font-bold text-primary mt-8 mb-4">Current Projects</h4>
+                      <ul className="space-y-4 list-disc pl-5">
+                        {area.id === 1 && (
+                          <>
+                            <li>
+                              <span className="font-medium">Gene-Environment Interactions in Autism</span>
+                              <p className="mt-1">Understanding gene-environment interactions between mutations in autism risks genes and neurodevelopmental sequelae of metals exposures.</p>
+                            </li>
+                            <li>
+                              <span className="font-medium">Molecular Mechanisms</span>
+                              <p className="mt-1">Investigating the molecular pathways affected by environmental toxins in autism spectrum disorders.</p>
+                            </li>
+                            <li>
+                              <span className="font-medium">Biomarker Development</span>
+                              <p className="mt-1">Identifying potential biomarkers for early detection and intervention in autism.</p>
+                            </li>
+                          </>
+                        )}
+                        {area.id === 2 && (
+                          <>
+                            <li>
+                              <span className="font-medium">Gut Microbiome in Brain Disorders</span>
+                              <p className="mt-1">Elucidating multifactorial interactions of gut microbiome, genes, and environment in brain disorders.</p>
+                            </li>
+                            <li>
+                              <span className="font-medium">Microbiota-Gut-Brain Axis</span>
+                              <p className="mt-1">Studying the communication pathways between gut microbiota and the central nervous system.</p>
+                            </li>
+                            <li>
+                              <span className="font-medium">Therapeutic Interventions</span>
+                              <p className="mt-1">Developing potential probiotic and dietary interventions for neurodegenerative conditions.</p>
+                            </li>
+                          </>
+                        )}
+                        {area.id === 3 && (
+                          <>
+                            <li>
+                              <span className="font-medium">Iron Overload and Autism</span>
+                              <p className="mt-1">Unravelling the role of iron overload on the neurexin-neuroligin complex – Implication for autism spectrum disorder.</p>
+                            </li>
+                            <li>
+                              <span className="font-medium">Synaptic Function</span>
+                              <p className="mt-1">Investigating how iron dysregulation affects synaptic formation and function in autism models.</p>
+                            </li>
+                            <li>
+                              <span className="font-medium">Iron Chelation Therapies</span>
+                              <p className="mt-1">Exploring potential therapeutic approaches targeting iron homeostasis in autism.</p>
+                            </li>
+                          </>
+                        )}
+                        {area.id === 4 && (
+                          <>
+                            <li>
+                              <span className="font-medium">Stress and Environmental Factors</span>
+                              <p className="mt-1">Understanding the impact of chronic stress and environmental factors events on mental health.</p>
+                            </li>
+                            <li>
+                              <span className="font-medium">Stress Biomarkers</span>
+                              <p className="mt-1">Identifying biological markers of stress response and resilience.</p>
+                            </li>
+                            <li>
+                              <span className="font-medium">Intervention Development</span>
+                              <p className="mt-1">Creating evidence-based interventions to reduce the impact of environmental stressors on mental health.</p>
+                            </li>
+                          </>
+                        )}
+                      </ul>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -187,112 +348,6 @@ const About = () => {
                 These training opportunities serve as a way of advancing neuroscience research and training in the region.
               </p>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Lab Members */}
-      <section className="py-16 bg-secondary/30 dark:bg-gray-800/30">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Lab Members"
-            subtitle="Meet our dedicated team of researchers"
-          />
-
-          <h3 className="text-2xl font-bold text-primary mt-12 mb-6">Group Leader and Principal Investigator</h3>
-          <div className="grid grid-cols-1 gap-8 mb-12">
-            {principalInvestigators.map((member, index) => (
-              <TeamMemberCard
-                key={member.id}
-                name={member.name}
-                role={member.role}
-                bio={member.bio}
-                image={member.image}
-                email={member.email}
-                linkedin={member.linkedin}
-                position={member.position}
-                detailedBio={member.detailedBio}
-                delay={index}
-              />
-            ))}
-          </div>
-
-          <h3 className="text-2xl font-bold text-primary mt-12 mb-6">Research Fellows</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            {researchers.map((member, index) => (
-              <TeamMemberCard
-                key={member.id}
-                name={member.name}
-                role={member.role}
-                bio={member.bio}
-                image={member.image}
-                email={member.email}
-                linkedin={member.linkedin}
-                position={member.position}
-                detailedBio={member.detailedBio}
-                delay={index}
-              />
-            ))}
-          </div>
-
-
-
-
-        </div>
-      </section>
-
-      {/* Collaborators & Funders */}
-      <section className="py-16 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <SectionHeading
-            title="Collaborators & Funders"
-            subtitle="Our research is supported by collaborations and funding from prestigious institutions worldwide"
-          />
-
-          <h3 className="text-2xl font-bold text-primary mt-12 mb-6">Collaborators</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {collaborators.map((collaborator, index) => (
-              <motion.div
-                key={collaborator.id}
-                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <div className="flex items-center mb-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden mr-4">
-                    <img
-                      src={collaborator.imageUrl}
-                      alt={collaborator.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-primary">{collaborator.name}</h4>
-                    <p className="text-sm text-foreground/70">{collaborator.institution}</p>
-                    <p className="text-xs text-foreground/60">{collaborator.country}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <h3 className="text-2xl font-bold text-primary mt-12 mb-6">Funders</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {funders.map((funder, index) => (
-              <motion.div
-                key={funder.id}
-                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-border dark:border-gray-700"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <h4 className="font-bold text-primary mb-2">{funder.name}</h4>
-                <p className="text-foreground/80">{funder.description}</p>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>

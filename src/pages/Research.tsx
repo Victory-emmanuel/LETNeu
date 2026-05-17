@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { researchAreas } from "@/data/researchData";
-import { principalInvestigators, allTeamMembers } from "@/data/teamData";
+import { administration, allTeamMembers } from "@/data/teamData";
 
 const Research = () => {
   return (
