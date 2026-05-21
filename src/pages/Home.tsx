@@ -81,20 +81,20 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-foreground/80 mb-4">
+              <p className="text-sm md:text-base text-foreground/80 mb-4">
                 The Laboratory for Experimental and Translational Neurobiology (LETNeu) is a research-intensive group at the University of Medical Sciences, Ondo (UNIMED). We study neurotoxicity; mechanisms of neurodegeneration; gene-environment interactions and gut microbiome modulation in brain disorders (autism, Parkinson's, and Alzheimer's); and environmental neurotoxicology.
               </p>
-              <p className="text-foreground/80 mb-4">
+              <p className="text-sm md:text-base text-foreground/80 mb-4">
                 Our research aims to understand how the brain is affected by an interplay of genetic and environmental factors that trigger neuronal perturbations and/or neuronal death at critical stages of development and across the lifespan. Specifically, we focus on the role of metals as environmental toxicants interacting with genetic mutations in the pathogenesis of brain disorders including autism, Parkinson's, and Alzheimer's.
               </p>
-              <p className="text-foreground/80">
+              <p className="text-sm md:text-base text-foreground/80">
                 Our research leverages various experimental models particularly rodents and the innovative C. elegans via a combination of multiple approaches that include behavioural phenotypic studies, microscopic imaging, immunoassays, spectrophotometric and spectrometric analysis, gene expression, and transcriptomics analysis.
               </p>
             </motion.div>
           </div>
 
-          <h3 className="text-2xl font-bold text-primary mb-6">Research Focus</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+          <h3 className="text-xl md:text-2xl font-bold text-primary mb-6">Research Focus</h3>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
             {researchAreas.map((area, index) => (
               <motion.div
                 key={area.id}
@@ -218,13 +218,13 @@ const Home = () => {
           />
 
           <div className="mt-12">
-            <h3 className="text-2xl font-bold text-primary mb-6">Key Collaborators</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-primary mb-6">Key Collaborators</h3>
             <div className="scroll-marquee scroll-right py-2">
               <div className="scroll-track">
                 {[...collaborators, ...collaborators].map((collaborator, index) => (
                   <div
                     key={`collab-${index}`}
-                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 text-center dark:border dark:border-gray-700 min-w-[240px]"
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 text-center dark:border dark:border-gray-700 min-w-[140px] sm:min-w-[180px] md:min-w-[220px]"
                   >
                     <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden">
                       <img
@@ -243,13 +243,13 @@ const Home = () => {
           </div>
 
           <div className="mt-12">
-            <h3 className="text-2xl font-bold text-primary mb-6">Our Funders</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-primary mb-6">Our Funders</h3>
             <div className="scroll-marquee scroll-left py-2">
               <div className="scroll-track">
                 {[...funders, ...funders].map((funder, index) => (
                   <div
                     key={`funder-${index}`}
-                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 dark:border dark:border-gray-700 min-w-[240px]"
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 dark:border dark:border-gray-700 min-w-[140px] sm:min-w-[180px] md:min-w-[220px]"
                   >
                     <div className="w-40 h-20 mx-auto mb-3 overflow-hidden">
                       <img
@@ -258,8 +258,8 @@ const Home = () => {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <h4 className="font-medium text-primary mb-2">{funder.name}</h4>
-                    <a href={funder.website} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-500">{funder.website}</a>
+                    <h4 className="font-medium text-primary mb-2 text-sm">{funder.name}</h4>
+                    <a href={funder.website} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-500 break-words line-clamp-2">{funder.website}</a>
                   </div>
                 ))}
               </div>

@@ -24,7 +24,7 @@ const SectionHeading = ({
   return (
     <div className={`mb-12 ${alignClasses[align]}`}>
       <motion.h2
-        className="text-3xl md:text-4xl font-bold text-primary mb-4"
+        className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -35,7 +35,7 @@ const SectionHeading = ({
 
       {subtitle && (
         <motion.p
-          className="text-lg text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto"
+          className="text-sm sm:text-base md:text-lg text-muted-foreground dark:text-gray-300 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

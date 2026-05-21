@@ -6,6 +6,7 @@ import {
   Facebook,
   Twitter,
   Instagram,
+  Globe,
   ArrowRight,
 } from "lucide-react";
 import {
@@ -28,6 +29,7 @@ interface TeamMemberCardProps {
   facebook?: string;
   twitter?: string;
   instagram?: string;
+  websites?: string[];
   delay?: number;
   position?: string;
   detailedBio?: string;
@@ -44,6 +46,7 @@ const TeamMemberCard = ({
   facebook,
   twitter,
   instagram,
+  websites,
   delay = 0,
   position,
   detailedBio,
@@ -75,6 +78,11 @@ const TeamMemberCard = ({
       label: `${name}'s Instagram profile`,
       icon: Instagram,
     },
+    ...(websites?.map((site) => ({
+      href: site,
+      label: `${name}'s Website`,
+      icon: Globe,
+    })) || []),
   ].filter(Boolean) as {
     href: string;
     label: string;
@@ -83,49 +91,34 @@ const TeamMemberCard = ({
 
   return (
     <motion.div
-      className="transform transition-all hover:shadow-lg flex flex-col items-center"
+      className="group rounded-3xl overflow-hidden border border-border dark:border-gray-700 bg-white dark:bg-gray-800 shadow-md transition hover:-translate-y-1 hover:shadow-xl flex flex-col"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: delay * 0.1 }}
     >
-      <div className="flex justify-center pt-6">
-        <div className="w-40 h-40 sm:w-44 sm:h-44 overflow-hidden rounded-3xl relative">
-          <img src={image} alt={name} className="object-cover w-full h-full" />
+      <div className="w-full aspect-[4/4] overflow-hidden bg-slate-100">
+          <img
+            src={image}
+            alt={name}
+            className="object-cover object-center w-full h-full transition-transform duration-500 group-hover:scale-105"
+          />
         </div>
-      </div>
 
-      <div className="w-full mt-4 px-6 pb-6 text-center border border-border dark:border-gray-700 rounded-3xl bg-white dark:bg-gray-800 shadow-md">
-        <h3 className="text-xl font-bold text-primary mb-1">{name}</h3>
-        {position ? (
-          <p className="text-foreground/80 text-sm font-medium mb-2 whitespace-pre-line">{position}</p>
-        ) : (
-          <p className="text-highlight font-medium mb-2">{role}</p>
-        )}
-        {position && (
-          <p className="text-foreground/70 text-xs uppercase tracking-[0.18em] mb-4">{role}</p>
-        )}
-        <p className="text-foreground/80 text-sm mb-5">{bio}</p>
+        <div className="flex flex-col flex-1 p-4 text-center">
+        <div className="space-y-3 flex-1">
+          <h3 className="text-xl font-semibold text-primary">{name}</h3>
+          {position ? (
+            <>
+              <p className="text-foreground/80 text-sm font-medium whitespace-pre-line">{position}</p>
+              <p className="text-foreground/70 text-xs uppercase tracking-[0.18em]">{role}</p>
+            </>
+          ) : (
+            <p className="text-highlight font-medium text-sm">{role}</p>
+          )}
 
-        {socialLinks.length > 0 && (
-          <div className="flex flex-wrap justify-center gap-3 mb-4">
-            {socialLinks.map((link) => {
-              const Icon = link.icon;
-              return (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-                  rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-extra/50 text-primary hover:bg-accent hover:text-white transition-colors"
-                  aria-label={link.label}
-                >
-                  <Icon size={18} />
-                </a>
-              );
-            })}
-          </div>
-        )}
+          <p className="text-foreground/80 text-sm leading-6">{bio}</p>
+        </div>
 
         {showBio && detailedBio && (
           <Dialog>
@@ -194,6 +187,26 @@ const TeamMemberCard = ({
               </DialogClose>
             </DialogContent>
           </Dialog>
+        )}
+
+        {socialLinks.length > 0 && (
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            {socialLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                  className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-slate-100 text-primary hover:bg-amber-200 hover:text-white transition-colors dark:bg-gray-700 dark:text-white/90 dark:hover:bg-amber-500"
+                  aria-label={link.label}
+                >
+                  <Icon size={18} />
+                </a>
+              );
+            })}
+          </div>
         )}
       </div>
     </motion.div>

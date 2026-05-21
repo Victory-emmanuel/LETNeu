@@ -21,7 +21,7 @@ export const collaborators: Collaborator[] = [
     name: "Prof. Michael Aschner",
     institution: "Albert Einstein College of Medicine",
     country: "USA",
-    imageUrl: "https://i.postimg.cc/tR1dcyQb/user.png",
+    imageUrl: "/hero-media/michael-aschner.jpg",
     website: "#"
   },
   {
@@ -29,7 +29,7 @@ export const collaborators: Collaborator[] = [
     name: "Prof. Julia Bornhorst",
     institution: "University of Wuppertal",
     country: "Germany",
-    imageUrl: "https://i.postimg.cc/tR1dcyQb/user.png",
+    imageUrl: "/hero-media/prof-bornhorst.jpg",
     website: "#"
   },
   {
@@ -37,7 +37,7 @@ export const collaborators: Collaborator[] = [
     name: "Prof. Felix AA Soares",
     institution: "Federal University of Santa Maria",
     country: "Brazil",
-    imageUrl: "https://i.postimg.cc/tR1dcyQb/user.png",
+    imageUrl: "/hero-media/prof-felix-soares.jpg",
     website: "#"
   },
   {
@@ -45,7 +45,7 @@ export const collaborators: Collaborator[] = [
     name: "Dr. Alexander Bennedetto",
     institution: "Lancaster University",
     country: "UK",
-    imageUrl: "https://i.postimg.cc/tR1dcyQb/user.png",
+    imageUrl: "/hero-media/dr-alex-benedetto.jpg",
     website: "#"
   },
   {
@@ -53,7 +53,7 @@ export const collaborators: Collaborator[] = [
     name: "Prof. James Olopade",
     institution: "University of Ibadan",
     country: "Nigeria",
-    imageUrl: "https://i.postimg.cc/tR1dcyQb/user.png",
+    imageUrl: "/hero-media/prof-olopade.webp",
     website: "#"
   }
 ];

@@ -18,7 +18,7 @@ export interface Event {
     position: string;
     affiliation: string;
     role?: string;
-    imageUrl?: string;
+    // imageUrl?: string;
   }[];
   schedule?: {
     day: string;
@@ -66,7 +66,7 @@ export const upcomingEvents: Event[] = [
         body: undefined
       }
     ],
-    imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg",
+    imageUrl: "/hero-media/c-elegans-toheeb.webp",
     registrationUrl: "https://forms.gle/wcZB9Wjz2W1TU9J27",
     fees: [
       "REGISTRATION IS FREE"
@@ -80,12 +80,12 @@ export const upcomingEvents: Event[] = [
       {
         name: "Tobiloba S. Olajide",
         position: "Graduate Student, LETNeu, UNIMED",
-        email: "tolajide@unimed.edu.ng"
+        email: "olajidetobi625@gmail.com"
       },
       {
         name: "Toheeb O. Oyerinde",
         position: "Graduate Student, LETNeu, UNIMED",
-        email: "toyerinde@unimed.edu.ng"
+        email: "oyerindetoheeb@gmail.com"
       }
     ],
     schedule: [
@@ -139,63 +139,63 @@ export const upcomingEvents: Event[] = [
         position: "Professor of Biochemistry",
         affiliation: "Centre of Natural and Exact Sciences (CCNE), Federal University of Santa Maria, Brazil",
         role: "Speaker (Virtually)",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       },
       {
         name: "Prof. Daiana Silva Avila (F), Associate Professor and Leader",
         position: "Global Health Policy Consultant",
         affiliation: "Laboratory of Biochemistry and Toxicology in Caenorhabditis elegans (GBToxCe), Federal University of Pampa, Brazil.",
         role: "Speaker (Virtually)",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       },
       {
         name: "Dr Omamuyovwi M. Ijomone",
         position: "Associate Professor and Group Leader",
         affiliation: "LETNeu, and Department of Anatomy, FBMS, UNIMED",
         role: "Speaker and Organizer",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       },
       {
         name: "Dr Olayemi K. Ijomone",
         position: "Lecturer and Researcher",
         affiliation: "LETNeu and Department of Anatomy, FBMS, UNIMED",
         role: "Instructor (In person)",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       },
       {
         name: "Ms. Inyang Happiness",
         position: "Doctoral Student, LETNeu, UNIMED",
         affiliation: "LETNeu and Department of Anatomy, FBMS, UNIMED",
         role: "Instructor (In person)",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       },
       {
         name: "Ms. Omolabake Omotoso",
         position: "Graduate Student",
         affiliation: "LETNeu and Department of Anatomy, FBMS, UNIMED",
         role: "Instructor (In person)",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       },
       {
         name: "Mr Victor Anadu",
         position: "Graduate Student",
         affiliation: "LETNeu and Department of Anatomy, FBMS, UNIMED",
         role: "Instructor (In person)",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       },
       {
         name: "Mr Tobiloba Olajide",
         position: "Graduate Student and Co-Organizer",
         affiliation: "LETNeu and Department of Anatomy, FBMS, UNIMED",
         role: "Instructor (In person)",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       },
       {
         name: "Mr Toheeb Oyerinde",
         position: "Graduate Student and Co-Organizer",
         affiliation: "LETNeu and Department of Anatomy, FBMS, UNIMED",
         role: "Instructor (In person)",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       }
     ],
     flyerUrl: "/hero-media/C-elegans_Workshop-flyer.jpeg",
@@ -210,8 +210,7 @@ export const upcomingEvents: Event[] = [
 export const pastEvents: Event[] = [
   {
     id: 2,
-    title: "LETNeu NSN 2025 Conference Travel Support",
-    theme: "Supporting young neuroscientists through travel grants",
+    title: "FBMS International Conference and Symposiums",
     date: "Tuesday, 30th June 2025",
     time: "11:59 PM (UTC+1)",
     location: "University of Nigeria, Enugu Campus, Enugu State",
@@ -221,8 +220,8 @@ export const pastEvents: Event[] = [
         body: "LETNeu will provide partial support for up to 17 aspiring/young neuroscientists to participate in the annual Neuroscience Society of Nigeria (NSN) 2025 Conference at University of Nigeria, Enugu Campus, Enugu State from 2nd – 6th September 2025."
       }
     ],
-    imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg",
-    registrationUrl: "https://forms.gle/B5bn4r5xFde7mWrKA",
+    imageUrl: "https://i.postimg.cc/mkSwJr3p/Whats-App-Image-2025-04-28-at-16-49-43.jpg",
+    registrationUrl: undefined,
     fees: [
       "Early bird registration: 25,000 NGN",
       "Standard registration: 30,000 NGN",
@@ -280,88 +279,65 @@ export const pastEvents: Event[] = [
         position: "Professor of Biochemistry",
         affiliation: "Centre of Natural and Exact Sciences (CCNE), Federal University of Santa Maria, Brazil",
         role: "Speaker (Virtually)",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       },
       {
         name: "Prof. Daiana Silva Avila (F), Associate Professor and Leader",
         position: "Global Health Policy Consultant",
         affiliation: "Laboratory of Biochemistry and Toxicology in Caenorhabditis elegans (GBToxCe), Federal University of Pampa, Brazil.",
         role: "Speaker (Virtually)",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       },
       {
         name: "Dr Omamuyovwi M. Ijomone",
         position: "Associate Professor and Group Leader",
         affiliation: "LETNeu, and Department of Anatomy, FBMS, UNIMED",
         role: "Speaker and Organizer",
-        imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
+        // imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg"
       }
     ],
     gallery: [
-      "https://i.postimg.cc/mkSwJr3p/Whats-App-Image-2025-04-28-at-16-49-43.jpg",
-      "https://i.postimg.cc/9FDPQfvP/e1.png",
-      "https://i.postimg.cc/sDbYQrrk/e2.png"
+      "https://i.postimg.cc/mkSwJr3p/Whats-App-Image-2025-04-28-at-16-49-43.jpg"
     ],
     isPast: true,
-    flyerUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg",
+    flyerUrl: "https://i.postimg.cc/mkSwJr3p/Whats-App-Image-2025-04-28-at-16-49-43.jpg",
     category: 'conference'
   },
   {
-    id: 1,
-    title: "FBMS International Conference and Symposiums",
+    id: 3,
+    title: "LETNeu NSN 2025 Conference Travel Support",
+    theme: "Supporting young neuroscientists through travel grants",
     date: "Monday, March 10, 2025 ( Deadline )",
     time: "10:00 AM (UTC+1) Daily",
     location: "TETfund Building, UNIMED Laje Campus",
     description: [
       {
         subheading: "Conference Overview",
-        body: "Theme: Innovating Biomedical Research for Transformative National Policies. Featuring plenary speakers Prof. Olumide A.T. Ogundahunsi and Prof. Samuel O. Oluwafemi. Subthemes include advances in molecular biomedicine, neuroscience and neuro-technologies, innovative approaches in phytomedicine, endocrinology and reproductive physiology, anatomical bioanthropology, computational biology and bioinformatics, and artificial intelligence in biomedical research."
+        body: "NSN Coal City 2025 is the 22nd Scientific Conference and Annual General Meeting of the Neuroscience Society of Nigeria (NSN), which took place from September 2 to September 6, 2025\nLETNeu provided travel support for 17 aspiring/young neuroscientists to participate in the annual Neuroscience Society of Nigeria (NSN) 2025 Conference at University of Nigeria, Enugu Campus, Enugu State from 2nd – 6th September 2025.\nThe conference featured a rich program of plenary lectures, symposia, workshops, and poster sessions covering a wide range of neuroscience topics. It provided an excellent platform for networking, knowledge exchange, and showcasing cutting-edge research in the field of neuroscience in Nigeria and beyond.\nLETNeu's support enabled these young neuroscientists to present their research, engage with leading experts, and foster collaborations that will contribute to the advancement of neuroscience in Nigeria.\nHosted at the University of Nigeria, Enugu Campus (UNEC), the conference was centered around the theme: Advancing Neuroscience in Nigeria: Bridging the Gap in Research, Innovation and Clinical Practice."
       }
     ],
-    imageUrl: "https://i.postimg.cc/mkSwJr3p/Whats-App-Image-2025-04-28-at-16-49-43.jpg",
-    gallery: [
-      "https://i.postimg.cc/mkSwJr3p/Whats-App-Image-2025-04-28-at-16-49-43.jpg",
-      "https://i.postimg.cc/9FDPQfvP/e1.png",
-      "https://i.postimg.cc/sDbYQrrk/e2.png"
-    ],
-    isPast: true,
-    flyerUrl: "/hero-media/researcher-dissecting.jpeg",
-    category: 'workshop'
-  },
-  {
-    id: 3,
-    title: "New Research Publication",
-    date: "Monday, March 15, 2024",
-    time: "Published",
-    location: "Scientific Journal",
-    description: [
+    imageUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg",
+    organizers: [
       {
-        subheading: "Publication Overview",
-        body: "We are excited to share our recently published paper with you. A big congratulations to the LETNeu team for doing an amazing work. The key takeaway is that potential therapeutic interventions such as the use of new and improved chelating agents and antioxidant therapies might be a significant approach to alleviating metal-induced glial perturbations."
+        name: "Neuroscience Society of Nigeria",
+        position: "NSN COAL CITY 2025",
+        email: undefined
       }
     ],
-    imageUrl: "https://i.postimg.cc/9FDPQfvP/e1.png",
+    gallery: [
+      "/hero-media/nsn-1.jfif",
+      "/hero-media/nsn-2.jfif",
+      "/hero-media/nsn-3.jfif",
+      "/hero-media/nsn-4.jfif",
+      "/hero-media/nsn-5.jfif",
+      "/hero-media/nsn-6.jfif"
+    ],
     isPast: true,
-    category: 'other'
+    flyerUrl: "https://i.postimg.cc/3NY3PDSJ/LETNeu-ISN-2025.jpg",
+    category: 'workshop'
   },
   {
     id: 4,
-    title: "Lectures and Practical Sessions",
-    date: "February 10, 2024",
-    time: "9:00 AM - 5:00 PM",
-    location: "UNIMED, Ondo",
-    description: [
-      {
-        subheading: "Workshop Overview",
-        body: "Lectures were given by Professor Felix Antunes Soares, Professor Monica Bastos and a virtual lecture by Miss Ofure Okoh. Thereafter, practicals were conducted. International Society for Neurochemistry (ISN)."
-      }
-    ],
-    imageUrl: "https://i.postimg.cc/sDbYQrrk/e2.png",
-    isPast: true,
-    category: 'workshop'
-  },
-  {
-    id: 5,
     title: "ISN NEUROSCIENCE School",
     date: "August 11-12, 2024",
     time: "9:00 AM - 5:00 PM",
@@ -373,6 +349,40 @@ export const pastEvents: Event[] = [
       }
     ],
     imageUrl: "https://i.postimg.cc/brWttQKx/e3.png",
+    gallery: [
+      "/hero-media/ISN-43.jpg",
+      "/hero-media/ISN-44.jpg",
+      "/hero-media/ISN-86.jpg",
+      "/hero-media/ISN-88.jpg",
+      "/hero-media/ISN-89.jpg",
+      "/hero-media/ISN-50.jpg",
+      "/hero-media/ISN-55.jpg",
+      "/hero-media/ISN-70.jpg",
+      "/hero-media/ISN-101.jpg",
+      "/hero-media/ISN-110.jpg",
+      "/hero-media/ISN-126.jpg",
+      "/hero-media/ISN-150.jpg",
+      "/hero-media/ISN-165.jpg",
+      "/hero-media/ISN-178.jpg",
+      "/hero-media/ISN-Dy02-3.jpg",
+      "/hero-media/ISN-Dy02-4.jpg",
+      "/hero-media/ISN-Dy02-5.jpg",
+      "/hero-media/ISN-Dy02-61.jpg",
+      "/hero-media/ISN-Dy02-71.jpg",
+      "/hero-media/ISN-Dy02-84.jpg",
+      "/hero-media/ISN-Dy02-108.jpg",
+      "/hero-media/ISN-Dy02-116.jpg",
+      "/hero-media/ISN-Dy02-117.jpg",
+      "/hero-media/ISN-Dy02-119.jpg",
+      "/hero-media/ISN-98.jpg",
+      "/hero-media/ISN-Dy02-123.jpg",
+      "/hero-media/ISN-Dy02-146.jpg",
+      "/hero-media/ISN-Dy02-150.jpg",
+      "/hero-media/ISN-85.jpg",
+      "/hero-media/ISN-61.jpg",
+      "/hero-media/ISN-199.jpg",
+      "/hero-media/ISN-30.jpg"
+    ],
     isPast: true,
     category: 'symposium'
   }

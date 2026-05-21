@@ -39,7 +39,7 @@ const EventCard = ({
       transition={{ duration: 0.5, delay: delay * 0.1 }}
     >
       {/* Image Section with Zoom and Overlay */}
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden">
         {imageUrl && (
           <>
             <img

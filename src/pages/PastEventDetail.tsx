@@ -119,7 +119,28 @@ const PastEventDetail = () => {
                   Past Event
                 </div>
                 <h2 className="text-2xl font-bold text-primary mb-4">About the Event</h2>
-                <p className="text-foreground/80 leading-relaxed whitespace-pre-wrap">{event.description}</p>
+                {/* Loop through the structured description array */}
+                <div className="space-y-4">
+                  {Array.isArray(event.description) ? (
+                    event.description.map((section, index) => (
+                      <div key={index} className="flex flex-col">
+                        {section.subheading && (
+                          <h3 className="text-lg font-semibold text-foreground mt-3 mb-1">
+                            {section.subheading}
+                          </h3>
+                        )}
+                        <p className="text-foreground/80 leading-relaxed whitespace-pre-wrap">
+                          {section.body}
+                        </p>
+                      </div>
+                    ))
+                  ) : (
+                    // Fallback in case any old events still use a plain string description
+                    <p className="text-foreground/80 leading-relaxed whitespace-pre-wrap">
+                      {event.description}
+                    </p>
+                  )}
+                </div>
               </motion.div>
 
               {event.speakers && event.speakers.length > 0 && (
@@ -134,13 +155,13 @@ const PastEventDetail = () => {
                   <div className="space-y-6">
                     {event.speakers.map((speaker, index) => (
                       <div key={index} className="flex items-center gap-4">
-                        <div className="w-20 h-20 md:w-32 md:h-32 rounded-xl bg-secondary/50 dark:bg-gray-700/50 overflow-hidden flex items-center justify-center flex-shrink-0">
+                        {/* <div className="w-20 h-20 md:w-32 md:h-32 rounded-xl bg-secondary/50 dark:bg-gray-700/50 overflow-hidden flex items-center justify-center flex-shrink-0">
                           {speaker.imageUrl ? (
                             <img src={speaker.imageUrl} alt={speaker.name} className="object-cover w-full h-full" />
                           ) : (
                             <div className="text-primary/50">No image</div>
                           )}
-                        </div>
+                        </div> */}
                         <div className="flex-1 min-w-0">
                           <h3 className="text-xl font-semibold text-primary">{speaker.name}</h3>
                           <p className="text-accent mb-1">{speaker.position}</p>

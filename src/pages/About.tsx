@@ -52,7 +52,7 @@ const About = () => {
 
   // Auto-switch media (images every 3s, videos every 5s)
   useEffect(() => {
-    const intervals: NodeJS.Timeout[] = [];
+    const intervals: number[] = [];
 
     researchAreas.forEach((area) => {
       const hasMultipleImages = area.imageUrls && area.imageUrls.length > 1;

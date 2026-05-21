@@ -92,13 +92,13 @@ const UpcomingEventDetail = () => {
                   <div className="space-y-6">
                     {event.speakers.map((speaker, index) => (
                       <div key={index} className="flex items-center gap-4">
-                        <div className="w-20 h-20 md:w-32 md:h-32 rounded-xl bg-secondary/50 dark:bg-gray-700/50 overflow-hidden flex items-center justify-center flex-shrink-0">
+                        {/* <div className="w-20 h-20 md:w-32 md:h-32 rounded-xl bg-secondary/50 dark:bg-gray-700/50 overflow-hidden flex items-center justify-center flex-shrink-0">
                           {speaker.imageUrl ? (
                             <img src={speaker.imageUrl} alt={speaker.name} className="object-cover w-full h-full" />
                           ) : (
                             <div className="text-primary/50">No image</div>
                           )}
-                        </div>
+                        </div> */}
                         <div className="flex-1 min-w-0">
                           <h3 className="text-xl font-semibold text-primary">{speaker.name}</h3>
                           <p className="text-foreground/80 font-medium">{speaker.position}</p>
@@ -175,7 +175,7 @@ const UpcomingEventDetail = () => {
                 )}
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-border dark:border-gray-700"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -213,7 +213,7 @@ const UpcomingEventDetail = () => {
                 ) : (
                   <p className="text-foreground/80">Abstract submission details are not available for this event.</p>
                 )}
-              </motion.div>
+              </motion.div> */}
 
               <motion.div
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-border dark:border-gray-700"

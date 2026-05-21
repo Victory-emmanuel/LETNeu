@@ -88,7 +88,7 @@ const HeroSection = ({ title, subtitle, media }: HeroSectionProps) => {
       <div className="container mx-auto px-6 relative z-20 text-left">
         <div className="max-w-5xl"> {/*Reduce or increase 5xl to give title text line text space */}
           <motion.h1
-            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-[1.1]"
+            className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-6 leading-[1.1]"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -100,7 +100,7 @@ const HeroSection = ({ title, subtitle, media }: HeroSectionProps) => {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-white/90 mb-10 max-w-3xl leading-relaxed"
+            className="text-base sm:text-lg md:text-2xl text-white/90 mb-10 max-w-3xl leading-relaxed"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -118,7 +118,7 @@ const HeroSection = ({ title, subtitle, media }: HeroSectionProps) => {
             {/* Button 1: Bordered/Outlined */}
             <Link
               to="/about"
-              className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-bold rounded-md hover:bg-white hover:text-black transition-all"
+              className="inline-flex items-center px-5 py-3 sm:px-8 sm:py-4 border-2 border-white text-white font-bold rounded-md hover:bg-white hover:text-black transition-all"
             >
               Explore Our Research
             </Link>
@@ -126,7 +126,7 @@ const HeroSection = ({ title, subtitle, media }: HeroSectionProps) => {
             {/* Button 2: Colored (Red) */}
             <Link
               to="/contact"
-              className="inline-flex items-center px-8 py-4 bg-red-600 text-white font-bold rounded-md hover:bg-red-700 transition-all transform hover:scale-105"
+              className="inline-flex items-center px-5 py-3 sm:px-8 sm:py-4 bg-red-600 text-white font-bold rounded-md hover:bg-red-700 transition-all transform hover:scale-105"
             >
               <span>Contact Us</span>
               <ArrowRight size={20} className="ml-2" />

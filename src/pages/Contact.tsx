@@ -232,16 +232,16 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-start">
+                  {/* <div className="flex items-start">
                     <div className="bg-accent/20 dark:bg-accent/30 p-3 rounded-full mr-4">
                       <Clock className="text-accent" size={24} />
                     </div>
 
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
 
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -256,13 +256,13 @@ const Contact = () => {
                     referrerPolicy="no-referrer-when-downgrade"
                   ></iframe>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Training Opportunities */}
+      {/* Training Opportunities
       <section className="py-16 bg-secondary/30 dark:bg-gray-800/30">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -329,7 +329,7 @@ const Contact = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
     </Layout>
   );
 };

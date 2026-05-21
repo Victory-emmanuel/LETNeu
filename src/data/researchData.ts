@@ -43,8 +43,8 @@ export const researchAreas: ResearchArea[] = [
     description: "Unravelling the role of iron overload on the neurexin-neuroligin complex – Implication for autism spectrum disorder.",
     imageUrl: undefined,
     imageUrls: [
-      "/hero-media/researcher-on-microscope.jpeg",
-      "/hero-media/glovedhand-zoom.jpeg"
+      "/hero-media/researcher-on-microscope.jpg",
+      "/hero-media/glovedhand-zoom.jpg"
     ],
     videoUrl: undefined,
     videoUrls: undefined,

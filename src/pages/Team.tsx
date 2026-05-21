@@ -98,7 +98,7 @@ const Team = () => {
           </SectionHeading>
 
           <motion.div
-            className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+            className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
             layout
             transition={{ duration: 0.5, type: "spring" }}
           >
@@ -114,6 +114,7 @@ const Team = () => {
                 facebook={member.facebook}
                 twitter={member.twitter}
                 instagram={member.instagram}
+                websites={member.websites}
                 position={member.position}
                 detailedBio={member.detailedBio}
                 showBio={isBioMember(member)}
